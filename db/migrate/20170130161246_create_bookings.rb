@@ -14,8 +14,8 @@ class CreateBookings < ActiveRecord::Migration[5.0]
       t.string :zip_code
       t.integer :people
       t.decimal :total_price
-      t.boolean :confirmed
-      t.boolean :paid
+      t.boolean :confirmed, default: false
+      t.boolean :paid, default: false
 
       t.timestamps
     end
