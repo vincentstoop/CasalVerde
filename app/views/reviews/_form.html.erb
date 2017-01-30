@@ -1,0 +1,14 @@
+<%= form_for @review do |f| %>
+
+  <label>What is your name?</label>
+  <%= f.text_field :name %>
+
+  <label>How many stars would you give us?</label>
+  <%= f.number_field(:stars, in: 1..5, step: 1) %>
+
+  <label>How would you describe your stay?</label>
+  <%= f.text_area :review %>
+
+  <%= f.submit "Enter review" %>
+
+<% end %>
