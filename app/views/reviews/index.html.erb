@@ -8,4 +8,18 @@
   <hr>
 <% end %>
 
-<p>Did you stay with us? We would like to hear your feedback. <%= link_to "Tell us about your stay",  new_review_path %>.</p>
+<p>Did you stay with us? We would like to hear your feedback. <%= link_to "Tell us about your stay",  new_review_path, remote: :true %>.</p>
+
+<button id="show-partial">
+  Give us a review!
+</button>
+
+<div style="display:none;" id="partial">
+  <%= render "form" %>
+</div>
+
+<script>
+  $('#show-partial').click(function(){
+      $('#partial').show();
+  });
+</script>
