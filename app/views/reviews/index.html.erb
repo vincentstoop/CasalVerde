@@ -5,4 +5,7 @@
     <li><strong>Stars: </strong><%= review.stars %>/5</li>
     <li><strong>Review: </strong><%= review.review %></li>
   </ul>
+  <hr>
 <% end %>
+
+<p>Did you stay with us? We would like to hear your feedback. <%= link_to "Tell us about your stay",  new_review_path %>.</p>
