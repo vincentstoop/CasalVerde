@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: casal
+  api_key: '464987883478937'
+  api_secret: P_RTT284sZXlSS01KtCqAarKgFQ
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: casal
+  api_key: '464987883478937'
+  api_secret: P_RTT284sZXlSS01KtCqAarKgFQ
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: casal
+  api_key: '464987883478937'
+  api_secret: P_RTT284sZXlSS01KtCqAarKgFQ
+  enhance_image_tag: true
+  static_image_support: false

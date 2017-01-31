@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :pages, only: [:index]
   resources :reviews
+  resources :photos
 
   namespace :admin do
     get '/', to: 'panel#index'
