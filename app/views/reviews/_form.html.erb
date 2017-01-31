@@ -4,7 +4,7 @@
   <%= f.text_field :name %>
 
   <label>How many stars would you give us?</label>
-  <%= f.number_field(:stars, in: 1..5, step: 1, value: 5) %>
+  <%= f.select(:stars, options_for_select([['★', 1], ['★★', 2], ['★★★', 3], ['★★★★', 4], ['★★★★★', 5]], 5)) %>
 
   <label>How would you describe your stay?</label>
   <%= f.text_area :review %>
@@ -12,3 +12,9 @@
   <%= f.submit "Enter review" %>
 
 <% end %>
+
+<style>
+  #review_stars option[value="1"] {
+    color: red;
+  }
+</style>
