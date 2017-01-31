@@ -1,14 +1,21 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
 
+
   get 'pages/photogallery'
 
-  root to: 'homepages#index'
+
+  root to: 'pages#index'
+
 
   devise_for :users
 
-  resources :homepages
+  resources :pages, only: [:index]
   resources :reviews
+
+  resources :photos
+  resources :bookings
+
 
   namespace :admin do
     get '/', to: 'panel#index'
