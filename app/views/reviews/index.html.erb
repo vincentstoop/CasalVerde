@@ -1,17 +1,11 @@
 <h1>Reviews</h1>
-<% @reviews.all.each do |review| %>
-  <ul>
-    <li><strong>Review by: </strong><%= review.name %></li>
-    <li><strong>Stars: </strong><%= review.stars %>/5</li>
-    <li><strong>Review: </strong><%= review.review %></li>
-  </ul>
-  <hr>
-<% end %>
 
-<p>Did you stay with us? We would like to hear your feedback. <%= link_to "Tell us about your stay",  new_review_path, remote: :true %>.</p>
+<%= render "reviews" %>
+
+<p>Did you stay with us? We would like to hear your feedback.</p>
 
 <button id="show-partial">
-  Give us a review!
+  Tell us about your stay
 </button>
 
 <div style="display:none;" id="partial">
@@ -20,6 +14,6 @@
 
 <script>
   $('#show-partial').click(function(){
-      $('#partial').show();
+      $('#partial').toggle();
   });
 </script>
