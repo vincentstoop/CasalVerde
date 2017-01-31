@@ -1,9 +1,34 @@
+<style>
+  /* Form -- Creating some air in the form */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+
+  input {
+    margin-top: 10px;
+  }
+
+  /* Button - Removing button styling from show-partial button */
+  #show-partial {
+    background:none;
+    border:none;
+    font-size:1em;
+    color: black;
+    text-decoration: underline;
+    padding: inherit;
+  }
+</style>
 <h1>Reviews</h1>
 
+<!-- Render tripadvisor and review partials -->
+<%= render "tripadvisor" %>
 <%= render "reviews" %>
 
 <p>Did you stay with us? We would like to hear your feedback.</p>
 
+<!-- When clicking on the tell us about your stay button, javascript wil make the partial div visible or invisable (toggle) -->
 <button id="show-partial">
   Tell us about your stay
 </button>
