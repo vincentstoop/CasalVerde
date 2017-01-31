@@ -14,29 +14,22 @@ class Admin::PricesController < Admin::BaseController
   # POST /admin/prices
   def create
     @price = Price.new(price_params)
-    if Price.not_overlapping?(@price.start_date, @price.end_date)
-      if @price.save
-        redirect_to admin_prices_path
-      else
-        redirect_to admin_prices_path, notice: "Can't save - invalid data."
-      end
+
+    if @price.save
+      redirect_to admin_prices_path
     else
-      redirect_to admin_prices_path, notice: "Can't save - Overlaps with another date."
+      redirect_to admin_prices_path, notice: "Can't save - invalid data."
     end
   end
 
   # PUT/PATCH /admin/prices/:id
   def update
     @price = Price.find(params[:id])
-
-    if Price.not_overlapping?(params[:start_date], params[:end_date])
-      if @price.update(price_params)
-        redirect_to admin_prices_path
-      else
-        redirect_to admin_prices_path, notice: "Can't save - invalid data."
-      end
+    
+    if @price.update(price_params)
+      redirect_to admin_prices_path
     else
-      redirect_to admin_prices_path, notice: "Can't save - Overlaps with another date."
+      redirect_to admin_prices_path, notice: "Can't save - invalid data."
     end
   end
 
