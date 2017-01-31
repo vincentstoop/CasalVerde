@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
-
-  root to: 'homepages#index'
+  root to: 'pages#index'
 
   devise_for :users
 
-  resources :homepages
+  resources :pages, only: [:index]
   resources :reviews
 
   namespace :admin do

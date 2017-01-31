@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :homepage do
+  factory :carousel do
     
   end
 end
