@@ -1,1 +1,30 @@
-<h1>Adminpanel - Prices - index</h1>
+<h2>Seasonal Prices</h2>
+
+<% if @price.errors.any? %>
+  <% @price.errors.full_messages do |msg| %>
+    <p><%= msg %></p>
+  <% end %>
+<% end %>
+
+<table class="admin_table">
+  <thead>
+    <td>From</td>
+    <td>Until</td>
+    <td>Minimum # days</td>
+    <td>Nightly price (8 people)</td>
+    <td>Extra price per added person</td>
+    <td colspan="2">Actions</td>
+  </thead>
+  <tbody>
+    <% if @prices.any? %>
+      <%= render @prices %>
+    <% else %>
+      <tr>
+        <td colspan="7">No prices found. Add them here.</td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <%= render 'form' %>
+  </tfoot>
+</table>
