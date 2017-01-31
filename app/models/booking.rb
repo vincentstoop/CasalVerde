@@ -11,9 +11,9 @@ class Booking < ApplicationRecord
   validates :city, presence: true
   validates :zip_code, presence: true
   validates :people, presence: true
-  validates :confirmed, presence: true
-  validates :paid, presence: true
-  validates :total_price, presence: true
+  # validates :confirmed, presence: true
+  # validates :paid, presence: true
+  # validates :total_price, presence: true
 
   def available?(check_in, check_out)
     bookings.each do |booking|
