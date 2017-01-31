@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 table.admin_table {
   td {
     padding: 5px;
@@ -11,4 +14,38 @@ table.admin_table {
   td.admin_linebreak {
     border: none;
   }
+}
+
+body.admin {
+  display: flex;
+}
+
+.admin_sidebar {
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: 200px;
+  background-color: #ccc;
+  padding: 10px 30px;
+  min-height: 100vh;
+  h1 {
+    font-size: 20px;
+  }
+}
+.admin_main {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin_flash {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 20px;
+  height: 80px;
+  background: #ddd;
+}
+
+.admin_content {
+  margin: 20px;
+  width: calc(100%-200px);
 }
