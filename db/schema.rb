@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 20170131094047) do
     t.string   "zip_code"
     t.integer  "people"
     t.decimal  "total_price"
-    t.boolean  "confirmed"
-    t.boolean  "paid"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.boolean  "confirmed",     default: false
+    t.boolean  "paid",          default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "carousels", force: :cascade do |t|
@@ -95,6 +95,6 @@ ActiveRecord::Schema.define(version: 20170131094047) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
+  
   add_foreign_key "paragraphs", "pages"
 end

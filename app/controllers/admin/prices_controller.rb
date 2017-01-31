@@ -2,11 +2,7 @@ class Admin::PricesController < Admin::BaseController
 
   # GET /admin/prices
   def index
-    @prices = Price.all
-  end
-
-  # GET /admin/prices/new
-  def new
+    @prices = Price.all.order(:start_date)
     @price = Price.new
   end
 
@@ -18,20 +14,22 @@ class Admin::PricesController < Admin::BaseController
   # POST /admin/prices
   def create
     @price = Price.new(price_params)
+
     if @price.save
       redirect_to admin_prices_path
     else
-      render :new
+      redirect_to admin_prices_path, notice: "Can't save - invalid data."
     end
   end
 
   # PUT/PATCH /admin/prices/:id
   def update
     @price = Price.find(params[:id])
+    
     if @price.update(price_params)
       redirect_to admin_prices_path
     else
-      render :edit
+      redirect_to admin_prices_path, notice: "Can't save - invalid data."
     end
   end
 
