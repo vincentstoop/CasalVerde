@@ -9,8 +9,6 @@ Rails.application.routes.draw do
 
   resources :photos
   resources :bookings
-
-
   namespace :admin do
     get '/', to: 'panel#index'
     resources :prices, except: [:show]
