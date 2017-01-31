@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
+
+
+  get 'pages/photogallery'
+
+
   root to: 'pages#index'
+
 
   devise_for :users
 
@@ -15,4 +21,5 @@ Rails.application.routes.draw do
     get '/', to: 'panel#index'
     resources :prices, except: [:show]
   end
+
 end
