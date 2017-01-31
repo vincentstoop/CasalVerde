@@ -14,4 +14,5 @@ Rails.application.routes.draw do
     get '/', to: 'panel#index'
     resources :prices, except: [:show]
   end
+
 end
