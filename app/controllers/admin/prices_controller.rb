@@ -6,11 +6,6 @@ class Admin::PricesController < Admin::BaseController
     @price = Price.new
   end
 
-  # GET /admin/prices/new
-  def new
-    @price = Price.new
-  end
-
   # GET /admin/prices/:id
   def edit
     @price = Price.find(params[:id])
@@ -33,10 +28,8 @@ class Admin::PricesController < Admin::BaseController
   # PUT/PATCH /admin/prices/:id
   def update
     @price = Price.find(params[:id])
-    start_date = params[:start_date] || @price.start_date
-    end_date = params[:end_date] || @price.end_date
-    
-    if Price.not_overlapping?(start_date, end_date)
+
+    if Price.not_overlapping?(params[:start_date], params[:end_date])
       if @price.update(price_params)
         redirect_to admin_prices_path
       else
