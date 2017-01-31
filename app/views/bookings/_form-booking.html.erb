@@ -1,0 +1,21 @@
+<%= form_for new_booking_url do |f| %>
+
+  <hr>
+
+  <div>
+    <label>Check In:</label>
+    <%= f.date_select :check_in %>
+  </div>
+
+  <div>
+    <label>Check Out:</label>
+    <%= f.date_select :check_out %>
+  </div>
+
+  <hr>
+  
+
+  <div>
+    <%= f.submit "Book Now" %>
+  </div>
+<% end %>
