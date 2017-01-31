@@ -1,15 +1,15 @@
-<%= form_for new_booking_url do |f| %>
+<%= form_for :booking do |f| %>
 
   <hr>
 
   <div>
     <label>Check In:</label>
-    <%= f.date_select :check_in %>
+    <%= f.date_field :check_in %>
   </div>
 
   <div>
     <label>Check Out:</label>
-    <%= f.date_select :check_out %>
+    <%= f.date_field :check_out %>
   </div>
 
   <hr>

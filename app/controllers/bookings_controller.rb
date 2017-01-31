@@ -3,11 +3,14 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+  def new
+  end
+
   def create
     @booking = Booking.new(booking_params)
 
-    if @booking.save
-      redirect_to booking
+    if @booking.save!
+      redirect_to bookings_path
     else
       render "index"
     end
@@ -17,6 +20,6 @@ private
   def booking_params
     params.require(:booking).permit(:check_in, :check_out, :first_name,
      :last_name, :title, :phone, :email, :street_name, :street_number,
-     :city, :zip_code, :people, :confirmed, :paid, :total_price)
+     :city, :zip_code, :people)
   end
 end
