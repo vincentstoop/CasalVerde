@@ -2,19 +2,15 @@ class ReviewsController < ApplicationController
   def index
     @reviews = Review.all
     @review = Review.new
-  end
-
-  def new
-    @review = Review.new
-  end
+end
 
   def create
     @review = Review.new(review_params)
 
     if @review.save
-      redirect_to reviews_path
+      redirect_to reviews_path(@review)
     else
-      redirect_to reviews_path
+      render "_form"
     end
   end
 

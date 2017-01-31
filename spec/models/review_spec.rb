@@ -37,7 +37,7 @@ RSpec.describe Review, type: :model do
       expect(review.errors).to have_key(:review)
     end
 
-    it 'is invalid with a review shorter then 20 characters' do
+    it 'is invalid with a review shorter then 10 characters' do
       review = Review.new(review: 'Hello')
       review.valid?
       expect(review.errors).to have_key(:review)
