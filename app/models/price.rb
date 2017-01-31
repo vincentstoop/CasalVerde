@@ -17,4 +17,23 @@ class Price < ApplicationRecord
       end
     end
   end
+
+  def self.total_price(checkin, checkout, people)
+    extra_people = people - 8
+    total_price = 0
+
+    (checkin..checkout).each do |date|
+      total_price += Price.price_at_day(date, extra_people) unless date == checkout
+    end
+    total_price
+  end
+
+  def self.price_at_day(date, extra_people)
+    price = Price.where("start_date <= ? AND end_date >= ?", date, date).first
+    total = price.nightly_price
+    if extra_people > 0
+      total += price.extra_price * extra_people
+    end
+    total
+  end
 end
