@@ -17,6 +17,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
+gem 'devise'
+
 group :development do
   gem 'guard'
   gem 'guard-livereload', '~> 2.5', require: false
@@ -33,6 +35,7 @@ group :development, :test do
   gem 'factory_girl_rails', '4.7.0'
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
   gem 'selenium-webdriver', '~> 2.53'
+  gem 'shoulda-matchers'
 end
 
 group :test do
