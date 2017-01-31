@@ -1,1 +1,12 @@
-<h1>Adminpanel - Prices - index</h1>
+<h1>Prices - index</h1>
+
+
+<% if @prices.any? %>
+  <%= render @prices %>
+<% else %>
+  <p>No price data found yet. Create it below.</p>
+<% end %>
+
+<hr>
+
+<%= render 'form' %>

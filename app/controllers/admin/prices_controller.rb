@@ -2,7 +2,8 @@ class Admin::PricesController < Admin::BaseController
 
   # GET /admin/prices
   def index
-    @prices = Price.all
+    @prices = Price.all.order(:start_date)
+    @price = Price.new
   end
 
   # GET /admin/prices/new

@@ -1,0 +1,25 @@
+<%= form_for ['admin', @price] do |f| %>
+  <div class="form-group">
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date %>
+  </div>
+  <div class="form-group">
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date %>
+  </div>
+  <div class="form-group">
+    <%= f.label :min_days %>
+    <%= f.number_field :min_days %>
+  </div>
+  <div class="form-group">
+    <%= f.label :nightly_price %>
+    <%= f.number_field :nightly_price %>
+  </div>
+  <div class="form-group">
+    <%= f.label :extra_price %>
+    <%= f.number_field :extra_price %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Add period" %>
+  </div>
+<% end %>
