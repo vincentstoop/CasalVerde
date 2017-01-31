@@ -19,10 +19,14 @@ class Admin::PricesController < Admin::BaseController
   # POST /admin/prices
   def create
     @price = Price.new(price_params)
-    if @price.save
-      redirect_to admin_prices_path
+    if Price.not_overlapping?(@price.start_date, @price.end_date)
+      if @price.save
+        redirect_to admin_prices_path
+      else
+        redirect_to admin_prices_path
+      end
     else
-      render :new
+      redirect_to admin_prices_path, notice: "Can't save - Overlaps with another date."
     end
   end
 

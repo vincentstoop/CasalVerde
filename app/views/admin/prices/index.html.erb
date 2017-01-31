@@ -1,12 +1,24 @@
-<h1>Prices - index</h1>
+<h1>Seasonal Prices</h1>
 
-
-<% if @prices.any? %>
-  <%= render @prices %>
-<% else %>
-  <p>No price data found yet. Create it below.</p>
-<% end %>
-
-<hr>
-
-<%= render 'form' %>
+<table class="admin_table">
+  <thead>
+    <td>From</td>
+    <td>Until</td>
+    <td>Minimum # days</td>
+    <td>Nightly price (8 people)</td>
+    <td>Extra price per added person</td>
+    <td colspan="2">Actions</td>
+  </thead>
+  <tbody>
+    <% if @prices.any? %>
+      <%= render @prices %>
+    <% else %>
+      <tr>
+        <td colspan="7">No prices found. Add them here.</td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <%= render 'form' %>
+  </tfoot>
+</table>

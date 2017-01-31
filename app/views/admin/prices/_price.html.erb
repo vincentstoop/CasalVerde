@@ -1,5 +1,9 @@
-<p>start date: <%= price.start_date %></p>
-<p>end date: <%= price.end_date %></p>
-<p>min days: <%= price.min_days %></p>
-<p>nightly price: <%= price.nightly_price %></p>
-<p>extra per person: <%= price.extra_price %></p>
+<tr>
+  <td><%= price.start_date %></td>
+  <td><%= price.end_date %></td>
+  <td><%= price.min_days %></td>
+  <td><%= price.nightly_price %></td>
+  <td><%= price.extra_price %></td>
+  <td><%= link_to "Edit", edit_admin_price_path(price) %></td>
+  <td><%= link_to "Delete", admin_price_path(price), method: :delete %></td>
+</tr>
