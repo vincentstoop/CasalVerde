@@ -8,10 +8,34 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <% flash.each do |type, message| %>
-      <%= content_tag(:div, message, class: "alert alert-#{type}") %>
-    <% end %>
-    <%= yield %>
+  <body class="admin">
+    <div class="admin_sidebar">
+      <h1>Admin panel</h1>
+
+      <div class="admin_links">
+        <ul class="admin_headlinks">
+          <li><%= link_to "Prices", admin_prices_path %></li>
+          <li><%= link_to "Bookings", "#" %></li>
+          <li>
+            Pages
+            <ul>
+              <li>Home</li>
+              <li>Features</li>
+              <li>xxxx</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="admin_main">
+      <div class="admin_flash">
+        <% flash.each do |type, message| %>
+          <%= content_tag(:div, message, class: "alert alert-#{type}") %>
+        <% end %>
+      </div>
+    <div class="admin_content">
+      <%= yield %>
+    </div>
   </body>
 </html>
