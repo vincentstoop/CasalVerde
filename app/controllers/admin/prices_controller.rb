@@ -23,7 +23,7 @@ class Admin::PricesController < Admin::BaseController
       if @price.save
         redirect_to admin_prices_path
       else
-        redirect_to admin_prices_path
+        redirect_to admin_prices_path, notice: "Can't save - invalid data."
       end
     else
       redirect_to admin_prices_path, notice: "Can't save - Overlaps with another date."
