@@ -1,0 +1,49 @@
+<%= form_for new_booking_url do |f| %>
+
+  <hr>
+
+  <div>
+    <label>Check In:</label>
+    <%= f.date_select :check_in %>
+  </div>
+
+  <div>
+    <label>Check Out:</label>
+    <%= f.date_select :check_out %>
+  </div>
+
+  <hr>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name, placeholder: "First name" %> <br>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name, placeholder: "Last name" %> <br>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, placeholder: "title" %> <br>
+
+  <%= f.label :phone %>
+  <%= f.text_field :phone, placeholder: "phone number" %> <br>
+
+  <%= f.label :email %>
+  <%= f.text_field :email, placeholder: "email" %> <br>
+
+  <%= f.label :street_name %>
+  <%= f.text_field :street_name, placeholder: "street name" %>  <br>
+
+  <%= f.label :street_number %>
+  <%= f.text_field :street_number, placeholder: "street number" %> <br>
+
+  <%= f.label :city %>
+  <%= f.text_field :city, placeholder: "city" %> <br>
+
+  <%= f.label :zip_code %>
+  <%= f.text_field :zip_code, placeholder: "zip code" %> <br>
+
+  <%= f.label :people %>
+  <%= f.text_field :people, placeholder: "number of people " %> <br>
+
+  <div>
+    <%= f.submit "Book Now" %>
+  </div>
+<% end %>
