@@ -34,20 +34,21 @@ window.Instagram = {
     }
 };
 
-Instagram.init({
-    client_id: 'd9a164a2fb55430db9e8091fb3b0e16d',
-    access_token: '2a02d690081e4c89ada3d2be2f72b9e4',
-});
-
-
 $( document ).ready(function() {
 
     Instagram.popular(function( response ) {
-        var $instagram = $( '#instagram' );
+        var instagram = $( '#instagram' );
         for ( var i = 0; i < response.data.length; i++ ) {
             imageUrl = response.data[i].images.low_resolution.url;
-            $instagram.append( '<img src="' + imageUrl + '" />' );
+            instagram.append( imgHelper(imageUrl) );
         }
     });
+
+    function imgHelper(url) {
+      var image = $('<img />')
+        .attr('src', url)
+        .addClass('ig-image');
+      return image;
+    }
 
 });
