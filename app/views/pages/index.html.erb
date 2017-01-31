@@ -1,1 +1,8 @@
 <h1>Hello suckers!</h1>
+
+
+<div class="carousel">
+  <% @carousel.photos.each do |photo| %>
+    <%= image_tag(photo.image_url(:standard)) %>
+  <% end %>
+</div>
