@@ -11,6 +11,10 @@
   <body class="admin">
     <div class="admin_sidebar">
       <h1>Admin panel</h1>
+      <%= link_to "Back to main", admin_path %>
+      <% if user_signed_in? %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      <% end %>
 
       <div class="admin_links">
         <ul class="admin_headlinks">
@@ -34,8 +38,9 @@
           <%= content_tag(:div, message, class: "alert alert-#{type}") %>
         <% end %>
       </div>
-    <div class="admin_content">
-      <%= yield %>
+      <div class="admin_content">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

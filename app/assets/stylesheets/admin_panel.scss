@@ -1,20 +1,6 @@
 * {
   box-sizing: border-box;
 }
-table.admin_table {
-  td {
-    padding: 5px;
-    border-collapse: collapse;
-    input[type=text] {
-    }
-  }
-  thead td {
-    background-color: #ccc;
-  }
-  td.admin_linebreak {
-    border: none;
-  }
-}
 
 body.admin {
   display: flex;
@@ -34,6 +20,7 @@ body.admin {
 .admin_main {
   display: flex;
   flex-direction: column;
+  width: 100vw;
 }
 
 .admin_flash {
