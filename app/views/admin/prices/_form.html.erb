@@ -1,13 +1,28 @@
-<tr>
-  <td colspan="7" class="admin_linebreak"></td>
-</tr>
-<tr id="add-form">
 <%= form_for ['admin', @price] do |f| %>
-  <td><%= f.date_field :start_date, placeholder: :start_date %></td>
-  <td><%= f.date_field :end_date, placeholder: :end_date %></td>
-  <td><%= f.number_field :min_days, placeholder: :min_days %></td>
-  <td><%= f.number_field :nightly_price, placeholder: :nightly_price %></td>
-  <td><%= f.number_field :extra_price, placeholder: :extra_price %></td>
-  <td><%= f.submit "Save", id: "add-form-button" %></td>
+  <div class="form-group">
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date, placeholder: :start_date %>
+  </div>
+  <div class="form-group">
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date, placeholder: :end_date %>
+  </div>
+  <div class="form-group">
+    <%= f.label :min_days %>
+    <%= f.number_field :min_days, placeholder: :min_days %>
+  </div>
+  <div class="form-group">
+    <%= f.label :nightly_price %>
+    <%= f.number_field :nightly_price, placeholder: :nightly_price %>
+  </div>
+  <div class="form-group">
+    <%= f.label :extra_price %>
+    <%= f.number_field :extra_price, placeholder: :extra_price %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Save", id: "add-form-button" %>
+    <% unless @price.new_record? %>
+      <%= link_to "<< Back", admin_prices_path %>
+    <% end %>
+  </div>
 <% end %>
-</tr>
