@@ -11,3 +11,7 @@ photo2 = Photo.create(remote_image_url: 'https://res.cloudinary.com/casal/image/
                       photo_page: carousel)
 photo3 = Photo.create(remote_image_url: 'https://res.cloudinary.com/casal/image/upload/v1485865022/car3_tf1wts.jpg',
                       photo_page: carousel)
+
+
+# Admin User
+User.create!(email: "admin@example.com", password: "foobar", password_confirmation: "foobar")
