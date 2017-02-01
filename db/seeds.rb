@@ -59,3 +59,11 @@ Booking.create!(check_in: "2017-03-10", check_out: "2017-03-30", first_name: "Ma
             email: "Mary@poppins.com", street_name: "WhateverStreet",
             street_number: "7320", city: "London", zip_code: "83921", people: 8,
             confirmed: true)
+
+# Reviews
+Review.create!(name: "Stefan", stars: 5, review: "It was the most impressive location I've ever been to.")
+Review.create!(name: "Andrew", stars: 5, review: "This was incredible.")
+Review.create!(name: "Sander", stars: 4, review: "Really cool place. Too bad the wifi was bad.")
+Review.create!(name: "Thanos", stars: 4, review: "Amazing. But not Greece.")
+Review.create!(name: "Jeroen", stars: 5, review: "Beautifully designed place.")
+Review.create!(name: "Vincent", stars: 4, review: "The bars in the area are great. Beautiful house as well.")

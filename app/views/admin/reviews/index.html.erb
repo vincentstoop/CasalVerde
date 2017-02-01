@@ -1,18 +1,6 @@
 <h2>Reviews</h2>
-<table class="admin_table">
-  <thead>
-    <td>Name</td>
-    <td>Stars</td>
-    <td>Review</td>
-    <td>Action</td>
-  </thead>
-  <tbody>
-    <% if @reviews.any? %>
-      <%= render "reviews" %>
-    <% else %>
-      <tr>
-        <td colspan="7">There are no reviews. Maby some <a href="http://www.marketingonline.nl/">marketing</a>?</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if @reviews.any? %>
+  <%= render "reviews" %>
+<% else %>
+  <p>No reviews found. Maybe do some <a href="http://www.marketingonline.nl/" target="_blank">marketing</a>?</p>
+<% end %>
