@@ -1,19 +1,21 @@
 class ReviewsController < ApplicationController
-  # GET /reviews
-  # GET /reviews.json
   def index
     @reviews = Review.all
     @review = Review.new
-    render json: @reviews
   end
 
   def create
     @review = Review.new(review_params)
 
-    if @review.save
-      redirect_to reviews_path(@review)
-    else
-      render '_form'
+    respond_to do |format|
+      if @review.save
+        format.html {redirect_to reviews_path, notice: "Thank you for your feedback"}
+        format.js {}
+        format.json {render json: @review, status: :created, location: @user}
+      else
+        format.html {render action: "show"}
+        format.json {render json: @review.errors, status: :unprocessable_entity}
+      end
     end
   end
 
