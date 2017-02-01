@@ -47,20 +47,14 @@ $( document ).on('turbolinks:load', function() {
         // });
     });
 
-
-
-    // var clickableImgs = $('img.ig-image');
-    // for ( var i = 0; i < clickableImgs.length; i++) {
-    //   clickableImgs[i].bind('click');
-    // }
-
-  });
+});
 
 function imgHelper(url, index) {
   var link = $('<a></a>')
   .attr('href', index)
   .addClass('ig-image')
-  .magnificPopup({type:'image'});
+  .magnificPopup({
+    type: 'image'});
   var image = $('<img />')
   .attr('src', url)
   link.append(image);
