@@ -51,6 +51,10 @@ class Booking < ApplicationRecord
     """
   end
 
+  def number_of_days
+    (check_out - check_in).to_i - 1
+  end
+
   private
     def set_booleans
       self.confirmed ||= false
