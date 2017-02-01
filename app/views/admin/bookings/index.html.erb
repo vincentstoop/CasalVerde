@@ -1,0 +1,20 @@
+<h2>Current booking</h2>
+<% if @bookings_current.empty? %>
+  <p>Currently no-one is in the house.</p>
+<% else %>
+  <%= render @bookings_current %>
+<% end %>
+
+<h2>Upcoming Confirmed bookings</h2>
+<% if @bookings_confirmed.empty? %>
+  <p>No confirmed guests yet.</p>
+<% else %>
+  <%= render @bookings_confirmed %>
+<% end %>
+
+<h2>Upcoming Reserved bookings</h2>
+<% if @bookings_reserved.empty? %>
+  <p>There are no reserved bookings.</p>
+<% else %>
+  <%= render @bookings_reserved %>
+<% end %>

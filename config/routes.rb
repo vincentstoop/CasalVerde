@@ -17,7 +17,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/', to: 'panel#index'
-    resources :prices, except: [:show]
+    resources :prices, except: [:show, :new]
+    resources :bookings, only: [:index]
     resources :reviews, only: [:index, :destroy]
   end
 
