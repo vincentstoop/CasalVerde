@@ -30,6 +30,14 @@
     margin: 0px;
   }
 
+  #tripadvisor {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
   ul {
     list-style-type: none;
     padding: 0px;
@@ -38,7 +46,6 @@
 <h1>Reviews</h1>
 
 <!-- Render tripadvisor and review partials -->
-<%= render "tripadvisor" %>
 <%= render "reviews" %>
 
 <p>Did you stay with us? We would like to hear your feedback.</p>
@@ -50,6 +57,10 @@
 
 <div style="display:none;" id="partial">
   <%= render "form" %>
+</div>
+
+<div id="tripadvisor">
+  <%= render "tripadvisor" %>
 </div>
 
 <script>
@@ -156,5 +167,4 @@ $("#review_stars").click(function(){
 $("#review_review").click(function(){
   resetErrors("review");
 });
-
 </script>
