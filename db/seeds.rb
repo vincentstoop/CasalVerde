@@ -17,8 +17,36 @@ photo2 = Photo.create(remote_image_url: 'https://res.cloudinary.com/casal/image/
 photo3 = Photo.create(remote_image_url: 'https://res.cloudinary.com/casal/image/upload/v1485865022/car3_tf1wts.jpg',
                       photo_page: carousel)
 
+
 p1 = Paragraph.create(text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel arcu elementum, pretium mi at, sodales turpis. Phasellus vel pellentesque sem. In hac habitasse platea dictumst. Nam pulvinar at neque posuere tempus. Donec efficitur vestibulum elit eu lobortis. Ut at aliquet orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis dui justo. Phasellus vitae commodo ipsum, nec laoreet justo. Sed ligula eros, congue at semper id, feugiat in ipsum. Proin pretium, nulla molestie commodo bibendum, sapien velit euismod mi, sit amet pretium leo lectus at mi. Maecenas dignissim et velit eu auctor. Duis enim mi, ullamcorper mattis sapien ut, dapibus tempus ante.', page: home_page)
 
 p2 = Paragraph.create(text: 'Sed faucibus sodales euismod. Fusce blandit semper nunc non aliquet. Morbi at nunc quis nisl sodales imperdiet. Maecenas id tincidunt lectus. Donec pellentesque mollis purus, ut vehicula purus ornare quis. Donec dapibus iaculis augue, sed ornare erat vehicula malesuada. Sed metus diam, pharetra ut commodo a, lobortis nec mauris. Nulla ut est sed justo gravida porta. Duis vestibulum, leo id euismod volutpat, nibh mi molestie tellus, et volutpat urna ligula id ex.', page: home_page)
 
 p3 = Paragraph.create(text: 'Nunc tincidunt feugiat dolor. Integer pretium risus eget augue gravida, nec euismod lectus sollicitudin. Pellentesque iaculis, tortor ut malesuada tincidunt, risus urna efficitur nulla, vitae gravida elit ipsum ac diam. Aliquam tincidunt eleifend arcu, vitae feugiat velit rhoncus non. Phasellus pulvinar ipsum non velit cursus porta. Phasellus non urna auctor, varius massa nec, tristique arcu. Praesent felis libero, dictum sit amet eros a, consectetur iaculis sem.', page: home_page)
+
+# Admin User
+User.destroy_all
+User.create!(email: "admin@example.com", password: "foobar", password_confirmation: "foobar")
+
+# Prices
+Price.destroy_all
+Price.create!(start_date: "2017-01-01", end_date: "2017-05-31", min_days: 7,
+              nightly_price: 400.00, extra_price: 100.00)
+# Booking
+Booking.destroy_all
+Booking.create!(check_in: "2017-02-01", check_out: "2017-02-15", first_name: "Bert",
+            last_name: "Ernie", title: "Mr.", phone: 1234,
+            email: "BertandErnie@sesamestreet.com", street_name: "Sesame Street",
+            street_number: "123", city: ":O", zip_code: "1234 AB", people: 2,
+            confirmed: true, paid: true)
+
+Booking.create!(check_in: "2017-02-16", check_out: "2017-02-28", first_name: "Mike",
+            last_name: "Blah", title: "Mr.", phone: 5678,
+            email: "mike@example.com", street_name: "Main Street",
+            street_number: "30a", city: "Los Angeles", zip_code: "90210", people: 10)
+
+Booking.create!(check_in: "2017-03-10", check_out: "2017-03-30", first_name: "Mary",
+            last_name: "Poppins", title: "Mrs.", phone: 9872,
+            email: "Mary@poppins.com", street_name: "WhateverStreet",
+            street_number: "7320", city: "London", zip_code: "83921", people: 8,
+            confirmed: true)
