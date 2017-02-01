@@ -1,42 +1,41 @@
-label {
-  display: block;
-  margin-bottom: 5px;
-  margin-top: 10px;
+.review {
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        margin-top: 10px;
+    }
+    input {
+        margin-top: 10px;
+    }
 }
-
-input {
-  margin-top: 10px;
-}
-
 /* Make form input red when conditions are not met */
-.validationErrorField {
-  border: 1px solid red;
-}
-
 /* Button - Removing button styling from show-partial button */
 #show-partial {
-  background:none;
-  border:none;
-  font-size:1em;
-  color: black;
-  text-decoration: underline;
-  padding: inherit;
+    background: none;
+    border: none;
+    font-size: 1em;
+    color: black;
+    text-decoration: underline;
+    padding: inherit;
 }
 
 #reviews {
-  padding: 0px;
-  margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
 #tripadvisor {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0px;
+.validationErrorField {
+    border: 1px solid $warning-color;
 }
