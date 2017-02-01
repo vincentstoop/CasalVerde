@@ -34,7 +34,7 @@ window.Instagram = {
     }
 };
 
-$( document ).ready(function() {
+$( document ).on('turbolinks:load', function() {
 
     Instagram.popular(function( response ) {
         var instagram = $( '#instagram' );
@@ -42,13 +42,28 @@ $( document ).ready(function() {
             imageUrl = response.data[i].images.low_resolution.url;
             instagram.append( imgHelper(imageUrl) );
         }
+        // $('img').each(function(index) {
+        //   $(index).bind('click', alerrt);
+        // });
     });
 
-    function imgHelper(url) {
-      var image = $('<img />')
-        .attr('src', url)
-        .addClass('ig-image');
-      return image;
-    }
 
-});
+
+    // var clickableImgs = $('img.ig-image');
+    // for ( var i = 0; i < clickableImgs.length; i++) {
+    //   clickableImgs[i].bind('click');
+    // }
+
+  });
+
+function alerrt() {
+  _this = $(this);
+  alert(_this.attr('src'));
+}
+function imgHelper(url) {
+  var image = $('<img />')
+  .attr('src', url)
+  .addClass('ig-image')
+  .bind('click', alerrt);
+  return image;
+}
