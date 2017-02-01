@@ -56,19 +56,13 @@ $( document ).on('turbolinks:load', function() {
 
   });
 
-function alerrt(index) {
-  _this = $(this);
-  alert(index);
-}
 function imgHelper(url, index) {
   var link = $('<a></a>')
-  .attr('href', index);
+  .attr('href', index)
+  .addClass('ig-image')
+  .magnificPopup({type:'image'});
   var image = $('<img />')
   .attr('src', url)
-  .addClass('ig-image')
-  .bind('click', function(){
-    alerrt(index);
-  });
   link.append(image);
   return link;
 }
