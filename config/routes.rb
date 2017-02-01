@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get '/', to: 'panel#index'
     get '/past_bookings', to: 'bookings#past', as: 'past_bookings'
     resources :prices, except: [:show, :new]
-    resources :bookings, only: [:index]
+    resources :bookings, only: [:index, :update, :destroy]
     resources :reviews, only: [:index, :destroy]
   end
 

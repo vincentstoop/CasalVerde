@@ -1,4 +1,4 @@
-<div class="well">
+<div class="well" data-id='<%= booking.id %>'>
   <div class="well-row-group">
     <span><%= booking.check_in %></span>
     <span>-</span>
@@ -15,14 +15,24 @@
   <div class="well-column-group">
     <div class="well-row"><span>Number of people:</span><span><%= booking.people %></span></div>
     <div class="well-row"><span>Number of days:</span><span><%= booking.number_of_days %></span></div>
-    <div class="well-row"><span>Confirmed:</span><span><%= booking.confirmed? ? "yes" : "no" %></span></div>
-    <div class="well-row"><span>Paid:</span><span><%= booking.paid? ? "yes" : "no" %></span></div>
+    <div class="well-row"><span>Confirmed:</span><span id="confirm-<%= booking.id%>"><%= booking.confirmed? ? "yes" : "no" %></span></div>
+    <div class="well-row"><span>Paid:</span><span id="pay-<%= booking.id %>"><%= booking.paid? ? "yes" : "no" %></span></div>
   </div>
   <div class="well-column-group">
     <div class="well-actions">
-      <span><%= link_to (booking.confirmed? ? "Un-confirm" : "Confirm"), '#' %></span>
-      <span><%= link_to "Delete", '#' %></span>
-      <span><%= link_to (booking.paid? ? "Not paid" : "Paid"), '#' %></span>
+      <span>
+        <%= link_to (booking.confirmed? ? "Un-confirm" : "Confirm"), '#',
+            class: 'toggle_confirm',
+            data: { confirmed: booking.confirmed } %>
+      </span>
+      <span>
+        <%= link_to "Delete", admin_booking_path(booking), method: :delete,
+            data: { confirm: "Are you sure?" } %>
+      </span>
+      <span>
+        <%= link_to (booking.paid? ? "Not paid" : "Paid"), '#', class: 'toggle_paid',
+            data: { paid: booking.paid } %>
+      </span>
     </div>
   </div>
 </div>
