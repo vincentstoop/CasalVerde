@@ -123,8 +123,23 @@ function showError(attr, error_message) {
   }
 }
 
+function resetErrors(attr) {
+  switch(attr) {
+    case "name":
+      $("#review_name").removeClass("validationErrorField");
+      break;
+    case "stars":
+      $("#review_stars").removeClass("validationErrorField");
+      break;
+    case "review":
+      $("#review_review").removeClass("validationErrorField");
+      break;
+  }
+}
+
 function submitReview(event) {
   event.preventDefault();
+  $("#error_message").remove();
   createReview($("#review_name").val(), $("#review_stars").val(), $("#review_review").val());
   $("#review_name").val(null);
   $("#review_stars").val(5);
@@ -132,5 +147,14 @@ function submitReview(event) {
 }
 
 $("form").bind('submit', submitReview);
+$("#review_name").click(function(){
+  resetErrors("name");
+});
+$("#review_stars").click(function(){
+  resetErrors("stars");
+});
+$("#review_review").click(function(){
+  resetErrors("review");
+});
 
 </script>
