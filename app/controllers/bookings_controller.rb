@@ -1,18 +1,16 @@
 class BookingsController < ApplicationController
-  def index
-    @bookings = Booking.all
-  end
 
   def new
+    @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
 
     if @booking.save!
-      redirect_to bookings_path
+      redirect_to new_booking_path
     else
-      render "index"
+      render "new"
     end
   end
 
