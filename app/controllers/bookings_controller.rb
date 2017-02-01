@@ -1,18 +1,22 @@
 class BookingsController < ApplicationController
-  def index
-    @bookings = Booking.all
-  end
 
   def new
+    @booking = Booking.new
   end
+
+  def show
+  end
+
 
   def create
     @booking = Booking.new(booking_params)
 
-    if @booking.save!
-      redirect_to bookings_path
+    if @booking.save
+      redirect_to @booking
     else
-      render "index"
+      render status: 422, json: {
+        errors: @booking.errors
+      }.to_json
     end
   end
 

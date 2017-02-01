@@ -6,8 +6,8 @@ class Booking < ApplicationRecord
   scope :confirmed_bookings, -> { upcoming_bookings.where(confirmed: true) }
   scope :last_checked_out, -> { past_bookings.order(:check_out).limit(1) }
 
-  before_validation :set_total_price
-  before_validation :set_booleans
+  # before_validation :set_total_price
+  # before_validation :set_booleans
 
   validates :check_in, presence: true
   validates :check_out, presence: true
@@ -24,7 +24,7 @@ class Booking < ApplicationRecord
   # validates :confirmed, presence: true
   # validates :paid, presence: true
   # validates :total_price, presence: true
-
+  #
   def self.available?(check_in, check_out)
     Booking.all.each do |booking|
       if (booking.starts_at <= check_out) && (booking.ends_at >= check_in)

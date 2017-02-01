@@ -18,7 +18,7 @@ class Price < ApplicationRecord
     end
   end
 
-  def self.total_price(checkin, checkout, people)
+  def self.total_price(checkin, checkout, people=8)
     extra_people = people - 8
     total_price = 0
 
