@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20170201090123) do
     t.string   "name"
     t.integer  "page_id"
     t.index ["page_id"], name: "index_carousels_on_page_id", using: :btree
-
   end
 
   create_table "pages", force: :cascade do |t|
@@ -100,7 +99,6 @@ ActiveRecord::Schema.define(version: 20170201090123) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
 
   add_foreign_key "carousels", "pages"
   add_foreign_key "paragraphs", "pages"

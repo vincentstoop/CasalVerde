@@ -1,0 +1,8 @@
+<h2>Past bookings</h2>
+<div class="bookings">
+  <% if @bookings.empty? %>
+    <p>There are no past bookings.</p>
+  <% else %>
+    <%= render @bookings %>
+  <% end %>
+</div>

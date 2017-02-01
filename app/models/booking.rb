@@ -4,6 +4,7 @@ class Booking < ApplicationRecord
   scope :past_bookings, -> { where("check_out < ?", Date.today) }
   scope :reserved_bookings, -> { upcoming_bookings.where(confirmed: false) }
   scope :confirmed_bookings, -> { upcoming_bookings.where(confirmed: true) }
+  scope :last_checked_out, -> { past_bookings.order(:check_out).limit(1) }
 
   before_validation :set_total_price
   before_validation :set_booleans

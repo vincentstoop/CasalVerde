@@ -6,41 +6,33 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
-  <body class="admin">
-    <div class="admin_sidebar">
-      <h1>Admin panel</h1>
+  <body class="admin_panel">
+    <div class="admin_navigation">
       <%= link_to "Back to main", admin_path %>
       <% if user_signed_in? %>
+      <br />
       <%= link_to "Logout", destroy_user_session_path, method: :delete %>
       <% end %>
 
-      <div class="admin_links">
-        <ul class="admin_headlinks">
-          <li><%= link_to "Prices", admin_prices_path %></li>
-          <li><%= link_to "Bookings", admin_bookings_path %></li>
-          <li>
-            Pages
-            <ul>
-              <li>Home</li>
-              <li>Features</li>
-              <li>xxxx</li>
-            </ul>
-          </li>
+      <div class="admin_menu">
+        <ul class="admin_links">
+          <li class="admin_link"><%= link_to "Prices", admin_prices_path %></li>
+          <li class="admin_link"><%= link_to "Bookings", admin_bookings_path %></li>
+          <li class="admin_link"><%= link_to "Past Bookings", admin_past_bookings_path %></li>
+          <li class="admin_link"><%= link_to "Reviews", admin_reviews_path %></li>
         </ul>
       </div>
     </div>
 
     <div class="admin_main">
-      <div class="admin_flash">
-        <% flash.each do |type, message| %>
-          <%= content_tag(:div, message, class: "alert alert-#{type}") %>
-        <% end %>
-      </div>
-      <div class="admin_content">
-        <%= yield %>
-      </div>
+      <% flash.each do |type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{type}") %>
+      <% end %>
+
+      <%= yield %>
     </div>
   </body>
 </html>

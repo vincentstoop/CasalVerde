@@ -30,10 +30,19 @@ User.create!(email: "admin@example.com", password: "foobar", password_confirmati
 
 # Prices
 Price.destroy_all
+Price.create!(start_date: "2016-09-02", end_date: "2016-12-31", min_days: 7,
+              nightly_price: 700.00, extra_price: 140.00)
 Price.create!(start_date: "2017-01-01", end_date: "2017-05-31", min_days: 7,
               nightly_price: 400.00, extra_price: 100.00)
 # Booking
 Booking.destroy_all
+
+Booking.create!(check_in: "2016-12-01", check_out: "2016-12-15", first_name: "Past",
+            last_name: "Guest", title: "Mr.", phone: 1234,
+            email: "Pino@sesamestreet.com", street_name: "Sesame Street",
+            street_number: "456", city: "Somewhere", zip_code: "1234 CD", people: 9,
+            confirmed: true, paid: true)
+
 Booking.create!(check_in: "2017-02-01", check_out: "2017-02-15", first_name: "Bert",
             last_name: "Ernie", title: "Mr.", phone: 1234,
             email: "BertandErnie@sesamestreet.com", street_name: "Sesame Street",
