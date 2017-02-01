@@ -66,8 +66,21 @@ function createReview(name, stars, review) {
     .append($('<li>').append("<strong>Stars: </strong>" + allStars))
     .append($('<li>').append("<strong>Review: </strong>" + review));
 
-  $("#reviews").append(reviewList);
+  $("#reviews").append(reviewList).append("<hr>");
 
+  var newReview = {name: name, stars: stars, review: review};
+
+  debugger
+
+    $.ajax({
+      type: "POST",
+      url: "/reviews.json",
+      data: JSON.stringify({
+          review: newReview
+      }),
+      contentType: "application/json",
+      dataType: "json"
+    });
 }
 
 function submitReview(event) {
