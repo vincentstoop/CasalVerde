@@ -1,9 +1,16 @@
-<tr>
-  <td><%= price.start_date %></td>
-  <td><%= price.end_date %></td>
-  <td><%= price.min_days %></td>
-  <td><%= price.nightly_price %></td>
-  <td><%= price.extra_price %></td>
-  <td><%= link_to "Edit", edit_admin_price_path(price) %></td>
-  <td><%= link_to "Delete", admin_price_path(price), method: :delete %></td>
-</tr>
+<div class="well">
+  <div class="well-row-group">
+    <span><%= price.start_date %></span>
+    <span>|</span>
+    <span><%= price.end_date %></span>
+  </div>
+  <div class="well-column-group">
+    <div class="well-row"><span>Minimum nights:</span><span><%= price.min_days %><span></div>
+    <div class="well-row"><span>Nightly Price:</span><span><%= price.nightly_price %></span></div>
+    <div class="well-row"><span>Price per extra:</span><span><%= price.extra_price %></span></div>
+  </div>
+  <div class="well-actions">
+    <span><%= link_to "Edit", edit_admin_price_path(price) %></span>
+    <span><%= link_to "Delete", admin_price_path(price), method: :delete %></span>
+  </div>
+</div>

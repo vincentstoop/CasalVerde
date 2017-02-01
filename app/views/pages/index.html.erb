@@ -1,8 +1,17 @@
-<h1>Hello suckers!</h1>
+<div class="carousel-container">
+  <div class="carousel">
+      <% @carousel.photos.each do |photo| %>
+      <%= image_tag(photo.image_url(:standard)) %>
+      <% end %>
+  </div>
+</div>
 
-
-<div class="carousel">
-  <% @carousel.photos.each do |photo| %>
-    <%= image_tag(photo.image_url(:standard)) %>
-  <% end %>
+    <div class="content">
+    <div>
+        <% @paragraphs.each do |p| %>
+        <div class="">
+            <p><%= p.text%></p>
+        </div>
+        <% end %>
+    </div>
 </div>

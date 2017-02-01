@@ -34,21 +34,29 @@ window.Instagram = {
     }
 };
 
-$( document ).ready(function() {
+$( document ).on('turbolinks:load', function() {
 
     Instagram.popular(function( response ) {
         var instagram = $( '#instagram' );
         for ( var i = 0; i < response.data.length; i++ ) {
             imageUrl = response.data[i].images.low_resolution.url;
-            instagram.append( imgHelper(imageUrl) );
+            instagram.append( imgHelper(imageUrl, response.data[i].images.standard_resolution.url) );
         }
+        // $('img').each(function(index) {
+        //   $(index).bind('click', alerrt);
+        // });
     });
 
-    function imgHelper(url) {
-      var image = $('<img />')
-        .attr('src', url)
-        .addClass('ig-image');
-      return image;
-    }
-
 });
+
+function imgHelper(url, index) {
+  var link = $('<a></a>')
+  .attr('href', index)
+  .addClass('ig-image')
+  .magnificPopup({
+    type: 'image'});
+  var image = $('<img />')
+  .attr('src', url)
+  link.append(image);
+  return link;
+}

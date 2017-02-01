@@ -6,25 +6,13 @@
   <% end %>
 <% end %>
 
-<table class="admin_table">
-  <thead>
-    <td>From</td>
-    <td>Until</td>
-    <td>Minimum # days</td>
-    <td>Nightly price (8 people)</td>
-    <td>Extra price per added person</td>
-    <td colspan="2">Actions</td>
-  </thead>
-  <tbody>
-    <% if @prices.any? %>
-      <%= render @prices %>
-    <% else %>
-      <tr>
-        <td colspan="7">No prices found. Add them here.</td>
-      </tr>
-    <% end %>
-  </tbody>
-  <tfoot>
-    <%= render 'form' %>
-  </tfoot>
-</table>
+<% if @prices.any? %>
+  <%= render @prices %>
+<% else %>
+  <p>No prices found. Add them below.</p>
+<% end %>
+
+<div class="form-wrapper">
+  <h3>Add Prices</h3>
+  <%= render 'form' %>
+</div>

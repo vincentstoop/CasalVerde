@@ -3,6 +3,6 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   version :standard do
     process eager: true
-    process resize_to_fill: [800, 350, :north]
+    process resize_to_fill: [1000, 400, :center]
   end
 end
