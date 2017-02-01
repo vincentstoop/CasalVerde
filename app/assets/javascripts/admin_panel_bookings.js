@@ -1,3 +1,5 @@
+/* global $ */
+
 $(document).on('turbolinks:load', function() {
   $('.toggle_confirm').bind('click', toggleConfirm);
   $('.toggle_paid').bind('click', togglePaid);
@@ -6,7 +8,7 @@ $(document).on('turbolinks:load', function() {
 // Mario wrote this while cooking spaghetti.
 function toggleConfirm(event) {
   event.preventDefault();
-  curr_link = this;
+  var curr_link = this;
   var current_status = $(this).data("confirmed");
   var booking_id = $(this).parent().parent().parent().parent().data("id");
 
@@ -33,7 +35,7 @@ function toggleConfirm(event) {
 
 function togglePaid(event) {
   event.preventDefault();
-  curr_link = this;
+  var curr_link = this;
   var current_status = $(this).data("paid");
   var booking_id = $(this).parent().parent().parent().parent().data("id");
 

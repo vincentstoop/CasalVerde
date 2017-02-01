@@ -1,0 +1,11 @@
+.instagram {
+    display: flex;
+    flex-wrap: wrap;
+    a {
+      padding: 10px;
+      max-width: calc(100%/3);
+      img {
+        width: 100%;
+      }
+    }
+}
