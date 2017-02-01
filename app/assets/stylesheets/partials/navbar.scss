@@ -2,9 +2,9 @@
   width: 100%;
   color: $base-color;
   text-transform: uppercase;
-  font-family: $font-title;
   h1 {
     margin: 0;
+    font-family: $font-title;
     span:nth-child(2) {
       font-weight: $font-bold-weight;
     }
