@@ -1,3 +1,7 @@
+$(document).on('turbolinks:load', function() {
+  $('#new_booking').bind('submit', submitBooking);
+});
+
 function submitBooking(event) {
   event.preventDefault();
   var startDate = $("#booking_check_in").val();
@@ -27,13 +31,16 @@ streetName, streetNumber, city, zipCode, people) {
 
   $.ajax({
     type: "POST",
-    url: "/bookings/new/",
+    url: "/bookings/",
     data: JSON.stringify({
       booking: newBooking
-    })
+    }),
+    contentType: "application/json",
+    dataType: "json"
+  })
     .fail(function(errors){
-      console.log('fuck');
+      var errorrrr = errors;
+      debugger;
       console.log(errors);
     })
-  })
 }
