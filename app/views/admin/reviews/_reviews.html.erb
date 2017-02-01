@@ -1,8 +1,16 @@
-<% @reviews.each do |review| %>
-  <tr>
-    <td><%= review.name %></td>
-    <td><%= review.stars %></td>
-    <td><%= review.review %></td>
-    <td><%= link_to "Delete", admin_review_path(review), confirm: "Are you sure?", method: :delete %></td>
-  </tr>
+<% Review.all.each do |review| %>
+<div class="well">
+  <div class="well-row-group">
+    <span><%= review.name %></span>
+  </div>
+  <div class="well-column-group">
+    <div class="well-row"><span>Name:</span><span><%= review.name %><span></div>
+    <div class="well-row"><span>Stars:</span><span><%= review.stars %></span></div>
+    <div class="well-row"><span>Review:</span></div>
+    <div class="review-show"><blockquote>"<%= review.review %>"</blockquote></div>
+  </div>
+  <div class="well-actions">
+    <span><%= link_to "Delete", admin_review_path(review), method: :delete %></span>
+  </div>
+</div>
 <% end %>
