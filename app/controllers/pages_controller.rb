@@ -5,6 +5,8 @@ class PagesController < ApplicationController
   end
 
   def index
-    @carousel = Carousel.find_by(name: 'home')
+    @page = Page.find_by(name: 'home_page')
+    @carousel = @page.carousels.find_by(name: 'home')
+    @paragraphs = @page.paragraphs.all
   end
 end
