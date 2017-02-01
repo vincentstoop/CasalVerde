@@ -1,4 +1,10 @@
 class Booking < ApplicationRecord
+  scope :current_booking, -> { where("check_in <= ? AND check_out >= ?", Date.today, Date.today).limit(1) }
+  scope :upcoming_bookings, -> { where("check_in > ?", Date.today) }
+  scope :past_bookings, -> { where("check_out < ?", Date.today) }
+  scope :reserved_bookings, -> { upcoming_bookings.where(confirmed: false) }
+  scope :confirmed_bookings, -> { upcoming_bookings.where(confirmed: true) }
+
   validates :check_in, presence: true
   validates :check_out, presence: true
   validates :first_name, presence: true
