@@ -8,6 +8,10 @@ $(document).on('turbolinks:load', function() {
         cssEase: 'linear'
     });
 
+    $('.bookingtrigger').click(function () {
+        $('.bookingmodal').toggleClass('clicked');
+    });
+
     $('#readmore').bind('click', function(e) {
         e.preventDefault();
         if ($('#home-text-wrapper').hasClass('home-text-hidden')) {

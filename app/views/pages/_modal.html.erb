@@ -1,29 +1,20 @@
 <div class="bookingtrigger">
-  <span>BOOK NOW</span>
+    <span>BOOK NOW</span>
+    <div class="bookingmodal">
+        <form action="/my-handling-form-page" method="post">
+            <div class="bookinginput">
+                <label for="checkin">Check in</label><br>
+                <input type="text" id="checkin" name="checkin"/>
+            </div>
+            <div class="bookinginput">
+                <label for="checkout">Check out</label><br>
+                <input type="text" id="checkout" name="checkout"/>
+            </div>
+            <div class="bookinginput guests">
+                <label for="guests">Guests</label><br>
+                <input type="text" id="guests" name="guests"/>
+            </div>
+            <button class="submit" type="submit">BOOK NOW</button>
+        </form>
+    </div>
 </div>
-
-<div class="bookingmodal">
-  <form action="/my-handling-form-page" method="post">
-    <div class="bookinginput">
-      <label for="checkin">Check in</label><br>
-      <input type="text" id="checkin" name="checkin" />
-    </div>
-    <div class="bookinginput">
-      <label for="checkout">Check out</label><br>
-      <input type="text" id="checkout" name="checkout" />
-    </div>
-    <div class="bookinginput guests">
-      <label for="guests">Guests</label><br>
-      <input type="text" id="guests" name="guests" />
-    </div>
-    <button class="submit" type="submit">BOOK NOW</button>
-  </form>
-</div>
-
-<script>
-
-  $('.bookingtrigger').click(function(){
-    $('.bookingmodal').toggleClass('clicked');
-  });
-  
-</script>
