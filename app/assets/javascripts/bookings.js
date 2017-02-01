@@ -31,9 +31,9 @@ streetName, streetNumber, city, zipCode, people) {
     data: JSON.stringify({
       booking: newBooking
     })
-    
-    .fail(function(error){
-      console.log(error);
+    .fail(function(errors){
+      console.log('fuck');
+      console.log(errors);
     })
   })
 }

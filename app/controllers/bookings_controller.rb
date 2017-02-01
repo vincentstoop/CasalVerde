@@ -4,24 +4,15 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
-  # def create
-  #   @booking = Booking.new(booking_params)
-  #
-  #   if @booking.save!
-  #     redirect_to new_booking_path
-  #   else
-  #     render "new"
-  #   end
-  # end
+  def show
+  end
+
 
   def create
     @booking = Booking.new(booking_params)
 
     if @booking.save
-      render status: 201, json: {
-        message: "Thank you for booking",
-        booking: @booking
-      }.to_json
+      redirect_to @booking
     else
       render status: 422, json: {
         errors: @booking.errors

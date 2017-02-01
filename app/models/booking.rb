@@ -5,8 +5,8 @@ class Booking < ApplicationRecord
   scope :reserved_bookings, -> { upcoming_bookings.where(confirmed: false) }
   scope :confirmed_bookings, -> { upcoming_bookings.where(confirmed: true) }
 
-  before_validation :set_total_price
-  before_validation :set_booleans
+  # before_validation :set_total_price
+  # before_validation :set_booleans
 
   validates :check_in, presence: true
   validates :check_out, presence: true

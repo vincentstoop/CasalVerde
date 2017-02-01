@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :photos
-  resources :bookings, only: [:new, :create]
+  resources :bookings, only: [:new, :create, :show]
 
   namespace :admin do
     get '/', to: 'panel#index'
