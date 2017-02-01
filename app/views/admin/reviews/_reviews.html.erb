@@ -1,0 +1,8 @@
+<% @reviews.each do |review| %>
+  <tr>
+    <td><%= review.name %></td>
+    <td><%= review.stars %></td>
+    <td><%= review.review %></td>
+    <td><%= link_to "Delete", admin_review_path(review), confirm: "Are you sure?", method: :delete %></td>
+  </tr>
+<% end %>
