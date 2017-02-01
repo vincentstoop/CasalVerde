@@ -1,15 +1,19 @@
+.booking-container {
+  position: relative;
+}
+
 .bookingtrigger {
     height: 30px;
     width: $button-width;
     border-radius: 15px;
     background-color: #6F8561;
-    cursor: pointer;
     text-align: center;
-    position: relative;
-    span {
+    a {
         color: white;
         font-size: 14px;
         line-height: 30px;
+        margin: 0;
+        padding: 0;
     }
 }
 

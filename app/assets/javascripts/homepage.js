@@ -8,8 +8,18 @@ $(document).on('turbolinks:load', function() {
         cssEase: 'linear'
     });
 
-    $('.bookingtrigger').click(function () {
-        $('.bookingmodal').toggleClass('clicked');
+    $('#bookingtrigger').bind('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if ($('.bookingmodal').hasClass('clicked')) {
+            $('.bookingmodal').removeClass('clicked');
+        } else {
+            $('.bookingmodal').addClass('clicked');
+        }
+    });
+
+    $('body').click(function() {
+        $('.bookingmodal').removeClass('clicked');
     });
 
     $('#readmore').bind('click', function(e) {
