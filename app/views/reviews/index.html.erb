@@ -38,7 +38,25 @@
 </div>
 
 <script>
-  $('#show-partial').click(function(){
-      $('#partial').toggle();
-  });
+// Showing form partial
+$('#show-partial').click(function(){
+    $('#partial').show();
+});
+
+// Updating reviews with ajax
+function createReview(name, stars, review) {
+  console.log("I am called!");
+
+}
+
+function submitReview(event) {
+  event.preventDefault();
+  createReview($("#review_name").val(), $("#review_stars").val(), $("#review_review").val());
+  $("#review_name").val(null);
+  $("#review_stars").val(null);
+  $("#review_review").val(null);
+}
+
+$("form").bind('submit', submitReview);
+
 </script>
