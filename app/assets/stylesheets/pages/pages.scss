@@ -29,7 +29,7 @@ body {
 }
 
 .bookingmodal.clicked {
-  display: flex !important;
+  display: flex;
   animation: open 200ms ease-in-out forwards;
   transform-origin: center top;
 
@@ -44,7 +44,6 @@ body {
       transform: scale(1);
     }
   }
-
 }
 
 .bookingmodal {
