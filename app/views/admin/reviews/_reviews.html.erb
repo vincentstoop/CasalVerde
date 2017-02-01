@@ -5,7 +5,14 @@
   </div>
   <div class="well-column-group">
     <div class="well-row"><span>Name:</span><span><%= review.name %><span></div>
-    <div class="well-row"><span>Stars:</span><span><%= review.stars %></span></div>
+    <div class="well-row"><span>Stars:</span><span>
+      <% review.stars.times do %>
+        <img src="http://i.imgur.com/nbis287.png" alt="" height="10px" width="10px">
+      <% end %>
+      <% (5 - review.stars).times do %>
+        <img src="http://i.imgur.com/VrtkzWz.png" alt="" height="10px" width="10px">
+      <% end %>
+    </span></div>
     <div class="well-row"><span>Review:</span></div>
     <div class="review-show"><blockquote>"<%= review.review %>"</blockquote></div>
   </div>
