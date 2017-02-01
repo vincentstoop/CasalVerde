@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :pages, only: [:index] do
     get :photogallery, on: :collection
   end
-  resources :reviews
+  resources :reviews do
+    get :json_index, :json_create, on: :collection
+  end
 
   resources :photos
   resources :bookings
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
     get '/', to: 'panel#index'
     resources :prices, except: [:show, :new]
     resources :bookings, only: [:index]
+    resources :reviews, only: [:index, :destroy]
   end
 
 end
