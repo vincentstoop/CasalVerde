@@ -42,19 +42,29 @@ $( document ).on('turbolinks:load', function() {
             imageUrl = response.data[i].images.low_resolution.url;
             instagram.append( imgHelper(imageUrl, response.data[i].images.standard_resolution.url) );
         }
-        // $('img').each(function(index) {
-        //   $(index).bind('click', alerrt);
-        // });
+        gallery();
     });
 
+    function gallery() {
+      $('.ig-image').magnificPopup({
+  		type: 'image',
+  		tLoading: 'Loading image #%curr%...',
+  		gallery: {
+  			enabled: true,
+  			navigateByImgClick: true,
+  			preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+  		},
+  		image: {
+  			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+  			}
+  	});
+  }
 });
 
 function imgHelper(url, index) {
   var link = $('<a></a>')
   .attr('href', index)
-  .addClass('ig-image')
-  .magnificPopup({
-    type: 'image'});
+  .addClass('ig-image');
   var image = $('<img />')
   .attr('src', url)
   link.append(image);
