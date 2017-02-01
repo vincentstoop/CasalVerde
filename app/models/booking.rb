@@ -20,9 +20,9 @@ class Booking < ApplicationRecord
   validates :city, presence: true
   validates :zip_code, presence: true
   validates :people, presence: true
-  validates :confirmed, presence: true
-  validates :paid, presence: true
-  validates :total_price, presence: true
+  # validates :confirmed, presence: true
+  # validates :paid, presence: true
+  # validates :total_price, presence: true
 
   def self.available?(check_in, check_out)
     Booking.all.each do |booking|
@@ -30,21 +30,24 @@ class Booking < ApplicationRecord
         return false
       end
     end
-
-    # Check if a price is set, if not it is not available.
+    # Check if a price is set for all days, if not it is not available.
     (check_in..check_out).each do |date|
       return false unless Price.where("start_date <= ? AND end_date >= ?", date, date).exists?
     end
     true
   end
 
+  def full_name
+    "#{title} #{first_name} #{last_name}"
+  end
+
   private
     def set_booleans
-      self.confirmed = false
-      self.paid = false
+      self.confirmed ||= false
+      self.paid ||= false
     end
 
     def set_total_price
-      self.total_price = Price.total_price(check_in, check_out, people)
+      self.total_price ||= Price.total_price(check_in, check_out, people)
     end
 end
