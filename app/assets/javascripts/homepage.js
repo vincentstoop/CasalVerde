@@ -4,7 +4,6 @@ $(document).on('turbolinks:load', function() {
     $('.carousel').slick({
         dots: true,
         infinite: true,
-        lazyLoad: 'progressive',
         cssEase: 'linear'
     });
 
