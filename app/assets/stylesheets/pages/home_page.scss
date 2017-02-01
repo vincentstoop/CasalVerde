@@ -1,0 +1,22 @@
+.home-text-container {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.home-text-wrapper {
+    max-height: 1000px;
+    transition: all 1s ease-in-out;
+}
+
+.home-text-hidden {
+    max-height: 150px;
+    overflow-y: hidden;
+}
+
+.readmore {
+    text-decoration: none;
+    margin-top: 25px;
+    display: inline-block;
+    color: $base-color;
+}

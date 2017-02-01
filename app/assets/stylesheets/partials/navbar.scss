@@ -1,0 +1,30 @@
+.navbar {
+  width: 100%;
+  color: $base-color;
+  text-transform: uppercase;
+  font-family: $font-title;
+  h1 {
+    margin: 0;
+    span:nth-child(2) {
+      font-weight: $font-bold-weight;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    padding: 5px;
+    margin: 0 10px;
+  }
+  .content {
+    padding: 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
