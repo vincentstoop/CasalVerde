@@ -25,7 +25,8 @@ Booking.destroy_all
 Booking.create!(check_in: "2017-02-01", check_out: "2017-02-15", first_name: "Bert",
             last_name: "Ernie", title: "Mr.", phone: 1234,
             email: "BertandErnie@sesamestreet.com", street_name: "Sesame Street",
-            street_number: "123", city: ":O", zip_code: "1234 AB", people: 2)
+            street_number: "123", city: ":O", zip_code: "1234 AB", people: 2,
+            confirmed: true, paid: true)
 
 Booking.create!(check_in: "2017-02-16", check_out: "2017-02-28", first_name: "Mike",
             last_name: "Blah", title: "Mr.", phone: 5678,

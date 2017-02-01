@@ -1,1 +1,29 @@
-<%= booking.full_name %>
+<!-- <p><%= booking.full_name %></p>
+<p>Check in: <%= booking.check_in %></p>
+<p>Check out: <%= booking.check_out %></p>
+<p>phone number: <%= booking.phone %></p>
+<p>email: <%= booking.email %></p>
+<p>address: <%= booking.full_address_html.html_safe %></p>
+<p>Number of people: <%= booking.people %></p>
+<p>Total price: <%= booking.total_price %></p>
+
+<p>Confirmed: <%= booking.confirmed? ? "yes" : "no" %></p>
+<p>Paid: <%= booking.paid? ? "yes" : "no" %></p> -->
+
+<div class="well">
+  <div class="well-row-group">
+    <span><%= booking.check_in %></span>
+    <span>|</span>
+    <span><%= booking.check_out %></span>
+  </div>
+  <div class="well-column-group">
+    <div class="well-row"><span><%= booking.full_name %></span></div>
+    <div class="well-row"><span><%= booking.full_address_html.html_safe %></span></div>
+  </div>
+  <div class="well-column-group">
+    <div class="well-row"><span>Number of people:</span><span><%= booking.people %></span></div>
+    <div class="well-row"><span>Confirmed:</span><span><%= booking.confirmed? ? "yes" : "no" %></span></div>
+    <div class="well-row"><span>Paid:</span><span><%= booking.paid? ? "yes" : "no" %></span></div>
+
+  </div>
+</div>

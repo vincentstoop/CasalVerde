@@ -41,6 +41,16 @@ class Booking < ApplicationRecord
     "#{title} #{first_name} #{last_name}"
   end
 
+  def full_address_html
+    """<br />
+    #{street_name} #{street_number} <br />
+    #{zip_code} <br />
+    #{city} <br />
+    #{phone} <br />
+    #{email}
+    """
+  end
+
   private
     def set_booleans
       self.confirmed ||= false

@@ -54,7 +54,7 @@ div.form-group {
 }
 
 div.well {
-  width: 240px;
+  max-width: 300px;
   padding: 10px;
   margin: 20px 0;
   border: 1px solid black;
@@ -62,7 +62,7 @@ div.well {
   display: flex;
   flex-direction: column;;
 }
-div.well-dates {
+div.well-row-group {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -72,7 +72,7 @@ div.well-dates {
     margin: 0 5px;
   }
 }
-div.well-prices {
+div.well-column-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
