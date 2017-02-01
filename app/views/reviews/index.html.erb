@@ -10,6 +10,11 @@
     margin-top: 10px;
   }
 
+  /* Make form input red when conditions are not met */
+  .validationErrorField {
+    border: 1px solid red;
+  }
+
   /* Button - Removing button styling from show-partial button */
   #show-partial {
     background:none;
@@ -69,9 +74,6 @@ function createReview(name, stars, review) {
   $("#reviews").append(reviewList).append("<hr>");
 
   var newReview = {name: name, stars: stars, review: review};
-
-  debugger
-
     $.ajax({
       type: "POST",
       url: "/reviews.json",
@@ -79,17 +81,55 @@ function createReview(name, stars, review) {
           review: newReview
       }),
       contentType: "application/json",
-      dataType: "json"
+      dataType: "json"})
+
+    .fail(function(error) {
+      console.log(error);
+
+      if(error.responseJSON.name != undefined) {
+        error_message = error.responseJSON.name[0];
+        showError("name", error_message)
+      }
+       if (error.responseJSON.stars != undefined) {
+         error_message = error.responseJSON.stars[0];
+         showError("stars", error_message)
+       }
+       if (error.responseJSON.review != undefined) {
+         error_message = error.responseJSON.review[0];
+         showError("review", error_message)
+       }
     });
+}
+
+function showError(attr, error_message) {
+  var errorHelpBlock = $('<span class="help-block"></span>')
+    .attr('id', 'error_message')
+    .text(" Please enter " + attr + ". It " + error_message + ".");
+
+  switch(attr) {
+    case "name":
+      $("#name_label").append(errorHelpBlock);
+      $("#review_name").addClass("validationErrorField")
+      break;
+    case "stars":
+      $("#stars_label").append(errorHelpBlock);
+      $("#review_stars").addClass("validationErrorField")
+      break;
+    case "review":
+      $("#review_label").append(errorHelpBlock);
+      $("#review_review").addClass("validationErrorField")
+      break;
+  }
 }
 
 function submitReview(event) {
   event.preventDefault();
   createReview($("#review_name").val(), $("#review_stars").val(), $("#review_review").val());
   $("#review_name").val(null);
-  $("#review_stars").val(null);
+  $("#review_stars").val(5);
   $("#review_review").val(null);
 }
 
 $("form").bind('submit', submitReview);
+
 </script>

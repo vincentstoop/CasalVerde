@@ -11,9 +11,9 @@ class ReviewsController < ApplicationController
       if @review.save
         format.html {redirect_to reviews_path, notice: "Thank you for your feedback"}
         format.js {}
-        format.json {render json: @review, status: :created, location: @user}
+        format.json {render json: @review, status: :created, location: @reviews}
       else
-        format.html {render action: "show"}
+        format.html {render action: "index"}
         format.json {render json: @review.errors, status: :unprocessable_entity}
       end
     end
