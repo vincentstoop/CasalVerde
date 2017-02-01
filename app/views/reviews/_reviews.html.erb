@@ -1,15 +1,17 @@
-<% @reviews.all.each do |review| %>
-    <ul>
-      <li><strong>Review by: </strong><%= review.name %></li>
-      <li><strong>Stars: </strong>
-        <% review.stars.times do %>
-          <img src="http://i.imgur.com/nbis287.png" alt="" height="10px" width="10px">
-        <% end %>
-        <% (5 - review.stars).times do %>
-          <img src="http://i.imgur.com/VrtkzWz.png" alt="" height="10px" width="10px">
-        <% end %>
-      </li>
-      <li><strong>Review: </strong><%= review.review %></li>
-    </ul>
-    <hr>
-<% end %>
+<ul id="reviews">
+  <% @reviews.all.each do |review| %>
+      <ul>
+        <li><strong>Review by: </strong><%= review.name %></li>
+        <li><strong>Stars: </strong>
+          <% review.stars.times do %>
+            <img src="http://i.imgur.com/nbis287.png" alt="" height="10px" width="10px">
+          <% end %>
+          <% (5 - review.stars).times do %>
+            <img src="http://i.imgur.com/VrtkzWz.png" alt="" height="10px" width="10px">
+          <% end %>
+        </li>
+        <li><strong>Review: </strong><%= review.review %></li>
+      </ul>
+      <hr>
+  <% end %>
+</ul>
