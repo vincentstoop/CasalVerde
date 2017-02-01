@@ -22,6 +22,10 @@ $(document).on('turbolinks:load', function() {
         $('.bookingmodal').removeClass('clicked');
     });
 
+    $('.bookingmodal').bind('click', function(e) {
+        e.stopPropagation();
+    });
+
     $('#readmore').bind('click', function(e) {
         e.preventDefault();
         if ($('#home-text-wrapper').hasClass('home-text-hidden')) {
