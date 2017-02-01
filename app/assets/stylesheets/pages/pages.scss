@@ -1,0 +1,108 @@
+body {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background-color: #CCC;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bookingtrigger {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 100px;
+  height: 30px;
+  width: 150px;
+  border-radius: 15px;
+  background-color: #6F8561;
+  cursor: pointer;
+
+  span {
+    padding: auto;
+    color: white;
+    font-family: lato, sans-serif;
+    font-size: 14px;
+    line-height: 30px;
+  }
+}
+
+.bookingmodal {
+  position: absolute;
+  top: 150px;
+  display: flex;
+  background: url('modalbg.svg');
+  height: 278px;
+  width: 300px;
+  font-family: Lato, sans-serif;
+  // box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    max-width: 300px;
+    margin-top: 35px;
+
+    :focus {
+      outline: 1px solid #6F8561;
+    }
+  }
+
+  .bookinginput {
+    padding-bottom: 17px;
+    margin: 0 5px;
+
+    label {
+      font-size: 12px;
+    }
+
+    input {
+      width: 105px;
+      height: 25px;
+      border: 1px solid #999;
+      border-radius: 3px;
+      margin-top: 5px;
+    }
+  }
+
+  .guests {
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    padding-top: 8px;
+    padding-bottom: 20px;
+
+    input {
+      width: 220px;
+    }
+  }
+
+  .submit {
+    background-color: #6F8561;
+    border: none;
+    width: 220px;
+    height: 50px;
+    border-radius: 3px;
+    margin: 17px 0 0 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+
+.contact_form label {
+    width:150px;
+    margin-top: 3px;
+    display:inline-block;
+    float:left;
+    padding:3px;
+}
+.contact_form input {
+    height:20px;
+    width:220px;
+    padding:5px 8px;
+}
