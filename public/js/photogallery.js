@@ -40,7 +40,7 @@ $( document ).on('turbolinks:load', function() {
         var instagram = $( '#instagram' );
         for ( var i = 0; i < response.data.length; i++ ) {
             imageUrl = response.data[i].images.low_resolution.url;
-            instagram.append( imgHelper(imageUrl) );
+            instagram.append( imgHelper(imageUrl, i) );
         }
         // $('img').each(function(index) {
         //   $(index).bind('click', alerrt);
@@ -56,14 +56,17 @@ $( document ).on('turbolinks:load', function() {
 
   });
 
-function alerrt() {
+function alerrt(index) {
   _this = $(this);
-  alert(_this.attr('src'));
+  alert(index);
 }
-function imgHelper(url) {
+function imgHelper(url, index) {
   var image = $('<img />')
   .attr('src', url)
+  // .attr('data-image', index)
   .addClass('ig-image')
-  .bind('click', alerrt);
+  .bind('click', function(){
+    alerrt(index);
+  });
   return image;
 }
