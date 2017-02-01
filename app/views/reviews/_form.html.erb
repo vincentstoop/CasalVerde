@@ -1,9 +1,11 @@
 <%= form_for @review do |f| %>
-  <ul>
-    <%= @review.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>`
+  <% if @review.errors.any? %>
+    <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
   <label>What is your name?</label>
   <%= f.text_field :name %> <br>
