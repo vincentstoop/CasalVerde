@@ -3,6 +3,7 @@ $(document).on('turbolinks:load', function() {
   $('.toggle_paid').bind('click', togglePaid);
 });
 
+// Mario wrote this while cooking spaghetti.
 function toggleConfirm(event) {
   event.preventDefault();
   curr_link = this;
