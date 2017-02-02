@@ -1,0 +1,48 @@
+.review {
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        margin-top: 10px;
+    }
+    input {
+        margin-top: 10px;
+    }
+}
+
+.validationErrorField {
+    border: 1px solid $warning-color;
+}
+
+.reviews-all-container {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.reviews-all-wrapper {
+    max-width: $content-width;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.reviews-all-item {
+    color: white;
+    width: calc((100%/3) - 30px);
+    padding: 30px;
+    margin: 20px 10px;
+    background-color: $base-color;
+}
+
+
+.reviews-all-header {
+    text-align: right;
+}
+
+.reviews-all-body {
+    text-align: center;
+}

@@ -1,0 +1,58 @@
+.content_form {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+
+    input {
+        width: 100%;
+        display: block;
+    }
+
+    textarea {
+        min-width: 100%;
+        max-width: 600px;
+        height: auto;
+    }
+
+    label {
+        display: inline-block;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    .check_box {
+        margin: 10px 0;
+
+        label {
+            margin: 0;
+        }
+
+        input {
+            display: inline-block;
+            width: auto;
+        }
+    }
+}
+
+.content_form.short {
+    max-width: 300px;
+
+    textarea {
+        max-width: 300px;
+    }
+}
+
+.submit {
+    text-transform: uppercase;
+    display: block !important;
+    background-color: #6F8561;
+    border: none;
+    width: 220px !important;
+    height: 40px;
+    border-radius: 3px;
+    margin: 17px auto 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}

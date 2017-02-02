@@ -1,17 +1,25 @@
-<ul id="reviews">
-  <% @reviews.all.each do |review| %>
-      <ul>
-        <li><strong>Review by: </strong><%= review.name %></li>
-        <li><strong>Stars: </strong>
-          <% review.stars.times do %>
-            <%= image_tag 'full_star.svg', class: 'star', alt: 'full star' %>
+
+<div class="reviews-all-container">
+  <div class="reviews-all-wrapper">
+    <% @reviews.all.each do |r| %>
+    <div class="reviews-all-item">
+      <div class="reviews-all-header">
+        <p><%= r.name %></p>
+      </div>
+      <div class="reviews-all-body">
+        <p>
+          <strong>Stars:
+          </strong>
+          <% r.stars.times do %>
+          <%= image_tag 'full_star.svg', class: 'star', alt: 'full star' %>
           <% end %>
-          <% (5 - review.stars).times do %>
-            <%= image_tag 'empty_star.svg', class: 'star', alt: 'empty star' %>
+          <% (5 - r.stars).times do %>
+          <%= image_tag 'empty_star.svg', class: 'star', alt: 'empty star' %>
           <% end %>
-        </li>
-        <li><strong>Review: </strong><%= review.review %></li>
-      </ul>
-      <hr>
-  <% end %>
-</ul>
+        </p>
+        <p><%= r.review %></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
