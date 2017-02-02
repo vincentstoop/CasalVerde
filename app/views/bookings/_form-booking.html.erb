@@ -4,20 +4,20 @@
     <hr>
 
     <div>
-      <%= f.label :check_out %>
+      <%= f.label :check_in %>
       <% if params[:checkin]%>
-        <%= f.date_field :check_in, :value => params[:checkin]%>
+        <%= f.text_field :check_in, :value => params[:checkin]%>
       <% else %>
-        <%= f.date_field :check_in%>
+        <%= f.text_field :check_in%>
       <% end %>
     </div>
 
     <div>
       <%= f.label :check_out %>
       <% if params[:checkout]%>
-        <%= f.date_field :check_out, :value => params[:checkout]%>
+        <%= f.text_field :check_out, :value => params[:checkout]%>
       <% else %>
-        <%= f.date_field :check_out%>
+        <%= f.text_field :check_out%>
       <% end %>
     </div>
 
