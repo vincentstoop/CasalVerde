@@ -21,5 +21,8 @@ Rails.application.routes.draw do
     resources :prices, except: [:show, :new]
     resources :bookings, only: [:index, :update, :destroy]
     resources :reviews, only: [:index, :destroy]
+    resources :pages
+    resources :paragraphs
+    resources :photos
   end
 end
