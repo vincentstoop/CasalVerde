@@ -12,11 +12,13 @@ day you plan to rent out the property.</p>
   <% end %>
 <% end %>
 
-<% if @prices.any? %>
-  <%= render @prices %>
-<% else %>
-  <p>No prices found. Add them below.</p>
-<% end %>
+<div class="well-wrapper">
+  <% if @prices.any? %>
+    <%= render @prices %>
+  <% else %>
+    <p>No prices found. Add them below.</p>
+  <% end %>
+</div>
 
 <div class="form-wrapper">
   <h3>Add Season</h3>

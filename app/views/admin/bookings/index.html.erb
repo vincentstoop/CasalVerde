@@ -5,7 +5,7 @@
 <p>It is not possible to edit bookings after they have been made. If a booking is incorrect, please delete and re-create it.</p>
 
 <h2>Last and current guests</h2>
-<div class="bookings">
+<div class="well-wrapper">
   <%= render @bookings_last %>
   <% if @bookings_current.empty? %>
     <p>Currently no-one is in the house.</p>
@@ -15,7 +15,7 @@
 </div>
 
 <h2>Upcoming Confirmed bookings</h2>
-<div class="bookings">
+<div class="well-wrapper">
   <% if @bookings_confirmed.empty? %>
     <p>No confirmed guests yet.</p>
   <% else %>
@@ -24,7 +24,7 @@
 </div>
 
 <h2>Upcoming Reserved bookings</h2>
-<div class="bookings">
+<div class="well-wrapper">
   <% if @bookings_reserved.empty? %>
     <p>There are no reserved bookings.</p>
   <% else %>
