@@ -24,6 +24,10 @@
     <%= f.number_field :extra_price, placeholder: :extra_price %>
   </div>
   <div class="form-group">
+    <%= f.label :service_costs %>
+    <%= f.number_field :service_costs, placeholder: :service_costs %>
+  </div>
+  <div class="form-group">
     <%= f.submit "Save", id: "add-form-button" %>
     <% unless @price.new_record? %>
       <%= link_to "<< Back", admin_prices_path %>

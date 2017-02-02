@@ -30,10 +30,13 @@ User.create!(email: "admin@example.com", password: "foobar", password_confirmati
 
 # Prices
 Price.destroy_all
-Price.create!(start_date: "2016-09-02", end_date: "2016-12-31", min_days: 7,
-              nightly_price: 700.00, extra_price: 140.00)
-Price.create!(start_date: "2017-01-01", end_date: "2017-05-31", min_days: 7,
-              nightly_price: 400.00, extra_price: 100.00)
+Price.create!(start_date: "2016-09-02", end_date: "2016-12-31", min_days: 3,
+              nightly_price: 700.00, extra_price: 140.00, service_costs: 500.00)
+Price.create!(start_date: "2017-01-01", end_date: "2017-05-31", min_days: 3,
+              nightly_price: 400.00, extra_price: 100.00, service_costs: 500.00)
+Price.create!(start_date: "2017-06-01", end_date: "2017-08-31", min_days: 3,
+              nightly_price: 800.00, extra_price: 140.00, service_costs: 500.00,
+              saturdays_only: true)
 # Booking
 Booking.destroy_all
 
