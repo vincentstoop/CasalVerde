@@ -1,4 +1,5 @@
-$(document).on('turbolinks:load', function() {
+/*global $*/
+$(document).on('turbolinks:load', function () {
   $('#new_booking').bind('submit', submitBooking);
 });
 
@@ -39,8 +40,21 @@ streetName, streetNumber, city, zipCode, people) {
     dataType: "json"
   })
     .fail(function(errors){
-      var errorrrr = errors;
-      debugger;
-      console.log(errors);
+      showErrors(errors);
     })
+
+    function showErrors(errors) {
+      var errorObject = errors.responseJSON.errors;
+      $.each (errorObject, function (key, value) {
+            var errorMessage = $('<p></p>')
+            .addClass('validationErrorField')
+            .html(capitalizeFirstLetter(key).split('_').join(' ') + '  ' + value);
+            $(errorMessage).insertAfter('#booking_' + key);
+            $('#booking_' + key).addClass('validationErrorField');
+      });
+    }
 }
+
+function capitalizeFirstLetter(str) {
+  return str.replace(str.charAt(0), str.charAt(0).toUpperCase());
+};
