@@ -48,9 +48,13 @@ streetName, streetNumber, city, zipCode, people) {
       $.each (errorObject, function (key, value) {
             var errorMessage = $('<p></p>')
             .addClass('validationErrorField')
-            .html(key + '  ' + value);
+            .html(capitalizeFirstLetter(key).split('_').join(' ') + '  ' + value);
             $(errorMessage).insertAfter('#booking_' + key);
             $('#booking_' + key).addClass('validationErrorField');
       });
     }
 }
+
+function capitalizeFirstLetter(str) {
+  return str.replace(str.charAt(0), str.charAt(0).toUpperCase());
+};
