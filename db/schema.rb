@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201090123) do
+ActiveRecord::Schema.define(version: 20170202101224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,18 +21,18 @@ ActiveRecord::Schema.define(version: 20170201090123) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "title"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "email"
     t.string   "street_name"
     t.string   "street_number"
     t.string   "city"
     t.string   "zip_code"
     t.integer  "people"
-    t.decimal  "total_price"
-    t.boolean  "confirmed",     default: false
-    t.boolean  "paid",          default: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.decimal  "total_price",   precision: 7, scale: 2
+    t.boolean  "confirmed",                             default: false
+    t.boolean  "paid",                                  default: false
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
   end
 
   create_table "carousels", force: :cascade do |t|
@@ -69,10 +69,12 @@ ActiveRecord::Schema.define(version: 20170201090123) do
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "min_days"
-    t.decimal  "nightly_price"
-    t.decimal  "extra_price"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.decimal  "nightly_price",  precision: 7, scale: 2
+    t.decimal  "extra_price",    precision: 7, scale: 2
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+    t.boolean  "saturdays_only",                         default: false
+    t.decimal  "service_costs",  precision: 7, scale: 2
   end
 
   create_table "reviews", force: :cascade do |t|

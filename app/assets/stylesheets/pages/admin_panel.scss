@@ -46,7 +46,7 @@ body.admin_panel {
   margin-left: 200px;
   padding: 5px 10px;
 }
-.bookings {
+.well-wrapper {
   display: flex;
   .well {
     margin-right: 10px;
@@ -77,10 +77,11 @@ div.well {
   max-width: 300px;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid black;
+  border: 1px solid $base-color;
   border-radius: 4px;
   display: flex;
-  flex-direction: column;;
+  flex-direction: column;
+  box-shadow: 1px 1px 2px $base-color;
 }
 div.well-row-group {
   display: flex;
@@ -100,6 +101,11 @@ div.well-column-group {
     flex-direction: row;
     justify-content: space-between;
   }
+}
+
+div.well-divider {
+  border-top: 1px solid $base-color;
+  margin-bottom: 8px;
 }
 div.review-show {
   padding-top: 1px;

@@ -9,15 +9,23 @@
   </div>
   <div class="form-group">
     <%= f.label :min_days %>
-    <%= f.number_field :min_days, placeholder: :min_days %>
+    <%= f.number_field :min_days, placeholder: :min_days, min: 1, max: 7 %>
+  </div>
+  <div class="form-group">
+    <%= f.label :saturdays_only %>
+    <%= f.check_box :saturdays_only %>
   </div>
   <div class="form-group">
     <%= f.label :nightly_price %>
-    <%= f.number_field :nightly_price, placeholder: :nightly_price %>
+    <%= f.number_field :nightly_price, placeholder: :nightly_price, min: 0.00, max: 10000.00, step: "50.00" %>
   </div>
   <div class="form-group">
     <%= f.label :extra_price %>
-    <%= f.number_field :extra_price, placeholder: :extra_price %>
+    <%= f.number_field :extra_price, placeholder: :extra_price, min: 0.00, max: 10000.00, step: "10.00" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :service_costs %>
+    <%= f.number_field :service_costs, placeholder: :service_costs, min: 0.00, max: 10000.00, step: "25.00" %>
   </div>
   <div class="form-group">
     <%= f.submit "Save", id: "add-form-button" %>
