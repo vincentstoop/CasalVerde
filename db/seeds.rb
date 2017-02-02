@@ -40,28 +40,29 @@ Price.create!(start_date: "2017-06-01", end_date: "2017-08-31", min_days: 3,
 # Booking
 Booking.destroy_all
 
-Booking.create!(check_in: "2016-12-01", check_out: "2016-12-15", first_name: "Past",
+# Figure out how to avoid validation
+Booking.new(check_in: "2016-12-01", check_out: "2016-12-15", first_name: "Past",
             last_name: "Guest", title: "Mr.", phone: 1234,
             email: "Pino@sesamestreet.com", street_name: "Sesame Street",
             street_number: "456", city: "Somewhere", zip_code: "1234 CD", people: 9,
-            confirmed: true, paid: true)
+            confirmed: true, paid: true).save(validate: false)
 
-Booking.create!(check_in: "2017-02-01", check_out: "2017-02-15", first_name: "Bert",
+Booking.new(check_in: "2017-02-01", check_out: "2017-02-15", first_name: "Bert",
             last_name: "Ernie", title: "Mr.", phone: 1234,
             email: "BertandErnie@sesamestreet.com", street_name: "Sesame Street",
             street_number: "123", city: ":O", zip_code: "1234 AB", people: 2,
-            confirmed: true, paid: true)
+            confirmed: true, paid: true).save(validate: false)
 
-Booking.create!(check_in: "2017-02-16", check_out: "2017-02-28", first_name: "Mike",
+Booking.new(check_in: "2017-02-16", check_out: "2017-02-28", first_name: "Mike",
             last_name: "Blah", title: "Mr.", phone: 5678,
             email: "mike@example.com", street_name: "Main Street",
-            street_number: "30a", city: "Los Angeles", zip_code: "90210", people: 10)
+            street_number: "30a", city: "Los Angeles", zip_code: "90210", people: 10).save(validate: false)
 
-Booking.create!(check_in: "2017-03-10", check_out: "2017-03-30", first_name: "Mary",
+Booking.new(check_in: "2017-03-10", check_out: "2017-03-30", first_name: "Mary",
             last_name: "Poppins", title: "Mrs.", phone: 9872,
             email: "Mary@poppins.com", street_name: "WhateverStreet",
             street_number: "7320", city: "London", zip_code: "83921", people: 8,
-            confirmed: true)
+            confirmed: true).save(validate: false)
 
 # Reviews
 Review.create!(name: "Stefan", stars: 5, review: "It was the most impressive location I've ever been to.")

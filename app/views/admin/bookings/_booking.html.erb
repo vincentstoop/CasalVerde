@@ -6,7 +6,7 @@
   </div>
   <div class="well-row-group">
     <span></span>
-    <span>&euro; <%= booking.total_price %></span>
+    <span><%= money(booking.total_price) %></span>
   </div>
   <div class="well-column-group">
     <div class="well-row"><span><%= booking.full_name %></span></div>
