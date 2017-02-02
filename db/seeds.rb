@@ -65,6 +65,8 @@ Booking.new(check_in: "2017-03-10", check_out: "2017-03-30", first_name: "Mary",
             confirmed: true).save(validate: false)
 
 # Reviews
+Review.destroy_all
+
 Review.create!(name: "Stefan", stars: 5, review: "It was the most impressive location I've ever been to.")
 Review.create!(name: "Andrew", stars: 5, review: "This was incredible.")
 Review.create!(name: "Sander", stars: 4, review: "Really cool place. Too bad the wifi was bad.")

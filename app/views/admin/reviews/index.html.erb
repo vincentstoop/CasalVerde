@@ -1,6 +1,8 @@
 <h2>Reviews</h2>
-<% if @reviews.any? %>
-  <%= render "reviews" %>
-<% else %>
-  <p>No reviews found. Maybe do some <a href="http://www.marketingonline.nl/" target="_blank">marketing</a>?</p>
-<% end %>
+<div class="well-wrapper">
+  <% if @reviews.any? %>
+    <%= render "reviews" %>
+  <% else %>
+    <p>No reviews found. Maybe do some <a href="http://www.marketingonline.nl/" target="_blank">marketing</a>?</p>
+  <% end %>
+</div>

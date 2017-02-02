@@ -27,7 +27,7 @@ class Booking < ApplicationRecord
 
   def self.available?(check_in, check_out)
     Booking.all.each do |booking|
-      if (booking.starts_at <= check_out) && (booking.ends_at >= check_in)
+      if (booking.starts_at < check_out) && (booking.ends_at > check_in)
         return false
       end
     end
