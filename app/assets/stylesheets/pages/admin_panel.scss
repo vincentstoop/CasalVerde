@@ -48,6 +48,7 @@ body.admin_panel {
 }
 .well-wrapper {
   display: flex;
+  flex-wrap: wrap;
   .well {
     margin-right: 10px;
     width: 300px;
@@ -81,6 +82,7 @@ div.well {
   border-radius: 4px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   box-shadow: 1px 1px 2px $base-color;
 }
 div.well-row-group {

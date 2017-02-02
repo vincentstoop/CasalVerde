@@ -16,8 +16,12 @@
     <div class="well-row"><span>Review:</span></div>
     <div class="review-show"><blockquote>"<%= review.review %>"</blockquote></div>
   </div>
-  <div class="well-actions">
-    <span><%= link_to "Delete", admin_review_path(review), method: :delete %></span>
+  <div class="well-divider"></div>
+  <div class="well-column-group">
+    <div class="well-actions">
+      <span></span>
+      <span><%= link_to "Delete", admin_review_path(review), method: :delete %></span>
+    </div>
   </div>
 </div>
 <% end %>

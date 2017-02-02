@@ -4,6 +4,7 @@
     <span>-</span>
     <span><%= booking.check_out %></span>
   </div>
+  <div class="well-divider"></div>
   <div class="well-row-group">
     <span></span>
     <span><%= money(booking.total_price) %></span>
@@ -12,12 +13,14 @@
     <div class="well-row"><span><%= booking.full_name %></span></div>
     <div class="well-row"><span><%= booking.full_address_html.html_safe %></span></div>
   </div>
+  <div class="well-divider"></div>
   <div class="well-column-group">
     <div class="well-row"><span>Number of people:</span><span><%= booking.people %></span></div>
     <div class="well-row"><span>Number of days:</span><span><%= booking.number_of_days %></span></div>
     <div class="well-row"><span>Confirmed:</span><span id="confirm-<%= booking.id%>"><%= booking.confirmed? ? "yes" : "no" %></span></div>
     <div class="well-row"><span>Paid:</span><span id="pay-<%= booking.id %>"><%= booking.paid? ? "yes" : "no" %></span></div>
   </div>
+  <div class="well-divider"></div>
   <div class="well-column-group">
     <div class="well-actions">
       <% if Date.current >= booking.check_in %>
