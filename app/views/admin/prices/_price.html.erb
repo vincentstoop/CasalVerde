@@ -1,14 +1,21 @@
 <div class="well">
   <div class="well-row-group">
     <span><%= price.start_date %></span>
-    <span>|</span>
     <span><%= price.end_date %></span>
   </div>
+  <% if price.saturdays_only %>
+  <div class="well-row-group">
+    <span>Check in/out on Saturdays only</span>
+  </div>
+  <% end %>
+  <div class="well-divider"></div>
   <div class="well-column-group">
     <div class="well-row"><span>Minimum nights:</span><span><%= price.min_days %><span></div>
-    <div class="well-row"><span>Nightly Price:</span><span><%= price.nightly_price %></span></div>
-    <div class="well-row"><span>Price per extra:</span><span><%= price.extra_price %></span></div>
+    <div class="well-row"><span>Nightly Price:</span><span>&euro; <%= price.nightly_price %></span></div>
+    <div class="well-row"><span>Price per extra:</span><span>&euro; <%= price.extra_price %></span></div>
+    <div class="well-row"><span>Service costs:</span><span>&euro; <%= price.service_costs %></span></div>
   </div>
+  <div class="well-divider"></div>
   <div class="well-actions">
     <span><%= link_to "Edit", edit_admin_price_path(price) %></span>
     <span><%= link_to "Delete", admin_price_path(price), method: :delete %></span>

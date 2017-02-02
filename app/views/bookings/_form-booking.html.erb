@@ -32,10 +32,10 @@
     <%= f.text_field :title, placeholder: "title" %> <br>
 
     <%= f.label :phone %>
-    <%= f.text_field :phone, placeholder: "phone number" %> <br>
+    <%= f.telephone_field :phone, placeholder: "phone number" %> <br>
 
     <%= f.label :email %>
-    <%= f.text_field :email, placeholder: "email" %> <br>
+    <%= f.email_field :email, placeholder: "email" %> <br>
 
     <%= f.label :street_name %>
     <%= f.text_field :street_name, placeholder: "street name" %>  <br>
@@ -51,12 +51,10 @@
 
     <%= f.label :people %>
     <% if params[:guests]%>
-      <%= f.text_field :people, :value => params[:guests]%> <br>
+      <%= f.text_field :people, :value => params[:guests], placeholder: 8, min: 1, max: 15%> <br>
     <% else %>
-      <%= f.text_field :people%> <br>
+      <%= f.text_field :people, placeholder: 8, min: 1, max: 15 %> <br>
     <% end %>
-
-    <!-- <%= f.text_field :people, placeholder: "number of people " %> <br> -->
 
     <div>
       <%= f.submit "Book Now" %>
