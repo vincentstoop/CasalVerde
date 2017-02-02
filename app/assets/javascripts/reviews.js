@@ -95,7 +95,7 @@ function submitReview(event) {
 }
 
 $(document).on('turbolinks:load', function() {
-    $("form").bind('submit', submitReview);
+    $("#new_review").bind('submit', submitReview);
     $("#review_name").click(function() {
         resetErrors("name");
     });
