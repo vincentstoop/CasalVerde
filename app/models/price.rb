@@ -29,7 +29,7 @@ class Price < ApplicationRecord
   end
 
   def self.price_at_day(date, extra_people)
-    price = Price.where("start_date <= ? AND end_date >= ?", date, date).first
+    price = Price.where("start_date <= ? AND end_date >= ?", date, date).last
     total = price.nightly_price
     if extra_people > 0
       total += price.extra_price * extra_people
@@ -38,7 +38,12 @@ class Price < ApplicationRecord
   end
 
   def self.saturdays_only?(check_in)
-    price = Price.where("start_date >= ? AND end_date <= ?", check_in, check_in).first
-    price.saturdays_only
+    price = Price.where("start_date <= ? AND end_date >= ?", check_in, check_in).last
+    price.saturdays_only == true
+  end
+
+  def self.min_days_at_check_in(check_in)
+    price = Price.where("start_date <= ? AND end_date >= ?", check_in, check_in).first
+    price.min_days
   end
 end
