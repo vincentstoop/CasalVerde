@@ -10,10 +10,9 @@ class Booking < ApplicationRecord
   before_save :set_total_price
   before_save :set_booleans
 
-  validate :check_in_must_be_after_today, :check_out_must_be_after_check_in
-          #,
-          #  :check_in_must_be_saturday, :check_out_must_be_saturday,
-          #  :has_minimum_days, :has_available_price
+  validate :check_in_must_be_after_today, :check_out_must_be_after_check_in,
+           :check_in_must_be_saturday, :check_out_must_be_saturday,
+           :has_minimum_days, :has_available_price
   validates :first_name, presence: true, length: {maximum: 255}
   validates :last_name, presence: true, length: {maximum: 255}
   validates :title, presence: true, length: {maximum: 10}
@@ -82,27 +81,27 @@ class Booking < ApplicationRecord
       end
     end
 
-    # def check_in_must_be_saturday
-    #   if Price.saturdays_only?(check_in) && !check_in.saturday?
-    #     errors.add(:check_in, "must be a Saturday")
-    #   end
-    # end
-    #
-    # def check_out_must_be_saturday
-    #   if Price.saturdays_only?(check_out) && !check_out.saturday?
-    #     errors.add(:check_out, "must be a Saturday")
-    #   end
-    # end
-    #
-    # def has_minimum_days
-    #   if Price.min_days_at_check_in(check_in) > (check_out - check_in).to_i
-    #     errors.add(:check_out, "not enough days selected")
-    #   end
-    # end
-    #
-    # def has_available_price
-    #   unless Price.where("start_date <= ? AND end_date >= ?", check_out, check_in).exists?
-    #     errors.add(:check_in, "booking not available at this date")
-    #   end
-    # end
+    def check_in_must_be_saturday
+      if Price.saturdays_only?(check_in) && !check_in.saturday?
+        errors.add(:check_in, "must be a Saturday")
+      end
+    end
+
+    def check_out_must_be_saturday
+      if Price.saturdays_only?(check_out) && !check_out.saturday?
+        errors.add(:check_out, "must be a Saturday")
+      end
+    end
+
+    def has_minimum_days
+      if Price.min_days_at_check_in(check_in) > (check_out - check_in).to_i
+        errors.add(:check_out, "not enough days selected")
+      end
+    end
+
+    def has_available_price
+      unless Price.where("start_date <= ? AND end_date >= ?", check_out, check_in).exists?
+        errors.add(:check_in, "booking not available at this date")
+      end
+    end
 end
