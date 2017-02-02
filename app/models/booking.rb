@@ -6,10 +6,10 @@ class Booking < ApplicationRecord
   scope :confirmed_bookings, -> { upcoming_bookings.where(confirmed: true) }
   scope :last_checked_out, -> { past_bookings.order(:check_out).limit(1) }
 
-  # before_validation :set_total_price
-  # before_validation :set_booleans
+  before_save :set_total_price
+  before_save :set_booleans
 
-  validates :check_in, presence: true
+  validate :check_in_must_be_after_today
   validates :check_out, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -21,10 +21,7 @@ class Booking < ApplicationRecord
   validates :city, presence: true
   validates :zip_code, presence: true
   validates :people, presence: true
-  # validates :confirmed, presence: true
-  # validates :paid, presence: true
-  # validates :total_price, presence: true
-  #
+
   def self.available?(check_in, check_out)
     Booking.all.each do |booking|
       if (booking.starts_at <= check_out) && (booking.ends_at >= check_in)
@@ -64,5 +61,12 @@ class Booking < ApplicationRecord
 
     def set_total_price
       self.total_price ||= Price.total_price(check_in, check_out, people)
+    end
+
+    def check_in_must_be_after_today
+      if check_in.present? && check_in > Date.today
+        errors.add(:check_in, "must be in the future")
+        debugger
+      end
     end
 end
