@@ -4,6 +4,7 @@ $(document).on('turbolinks:load', function() {
 
 function submitBooking(event) {
     event.preventDefault();
+    cleanUpErrors(this);
     var startDate = $("#booking_check_in").val();
     var endDate = $("#booking_check_out").val();
     var firstName = $("#booking_first_name").val();
@@ -53,10 +54,12 @@ function createBooking(startDate, endDate, firstName, lastName, title, phone, em
     function showErrors(errors) {
         var errorObject = errors.responseJSON.errors;
         $.each(errorObject, function(key, value) {
-            var errorMessage = $('<p></p>')
-                // .addClass('validationErrorField')
+            var errorMessages = $('<ul></ul>')
+                .addClass('errorList');
+            var errorMessage = $('<li></li>')
                 .html(capitalizeFirstLetter(key).split('_').join(' ') + '  ' + value);
-            $(errorMessage).insertAfter('#booking_' + key);
+            errorMessages.append(errorMessage);
+            $(errorMessages).insertAfter('#booking_' + key);
             $('#booking_' + key).addClass('validationErrorField');
         });
     }
@@ -65,3 +68,8 @@ function createBooking(startDate, endDate, firstName, lastName, title, phone, em
 function capitalizeFirstLetter(str) {
     return str.replace(str.charAt(0), str.charAt(0).toUpperCase());
 };
+
+function cleanUpErrors() {
+  $('ul.errorList').remove();
+  $('.validationErrorField').removeClass('validationErrorField');
+}

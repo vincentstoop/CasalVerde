@@ -1,4 +1,5 @@
 class Booking < ApplicationRecord
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   scope :current_booking, -> { where("check_in <= ? AND check_out >= ?", Date.today, Date.today).limit(1) }
   scope :upcoming_bookings, -> { where("check_in > ?", Date.today) }
   scope :past_bookings, -> { where("check_out < ?", Date.today) }
@@ -9,13 +10,15 @@ class Booking < ApplicationRecord
   before_save :set_total_price
   before_save :set_booleans
 
-  validate :check_in_must_be_after_today
-  validates :check_out, presence: true
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :title, presence: true
-  validates :phone, presence: true
-  validates :email, presence: true
+  validate :check_in_must_be_after_today, :check_out_must_be_after_check_in
+  validates :first_name, presence: true, length: {maximum: 255}
+  validates :last_name, presence: true, length: {maximum: 255}
+  validates :title, presence: true, length: {maximum: 10}
+  validates :phone, presence: true, length: {maximum: 255}
+  validates :email, presence: true,
+                    uniqueness: { case_sensitive: false },
+                    length: { maximum: 255 },
+                    format: { with: VALID_EMAIL_REGEX }
   validates :street_name, presence: true
   validates :street_number, presence: true
   validates :city, presence: true
@@ -53,6 +56,7 @@ class Booking < ApplicationRecord
     (check_out - check_in).to_i - 1
   end
 
+
   private
     def set_booleans
       self.confirmed ||= false
@@ -64,9 +68,14 @@ class Booking < ApplicationRecord
     end
 
     def check_in_must_be_after_today
-      if check_in.present? && check_in > Date.today
+      if !check_in.present? || (check_in - Date.today).to_i < 1
         errors.add(:check_in, "must be in the future")
-        debugger
+      end
+    end
+
+    def check_out_must_be_after_check_in
+      if !check_out.present? || (check_out - check_in).to_i < 1
+        errors.add(:check_out, "must be after check in")
       end
     end
 end
