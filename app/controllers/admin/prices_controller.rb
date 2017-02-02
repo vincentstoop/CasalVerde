@@ -11,6 +11,15 @@ class Admin::PricesController < Admin::BaseController
     @price = Price.find(params[:id])
   end
 
+  def create
+    @price = Price.new(price_params)
+    if @price.save
+      redirect_to admin_prices_path
+    else
+      redirect_to admin_prices_path
+    end
+  end
+
   # PATCH/PUT /admin/prices/:id
   def update
     @price = Price.find(params[:id])
