@@ -49,11 +49,11 @@
     <%= f.label :zip_code %>
     <%= f.text_field :zip_code, placeholder: "zip code" %> <br>
 
-    <%= f.label :people %>
+    <%= f.label "Number of people" %>
     <% if params[:guests]%>
-      <%= f.text_field :people, :value => params[:guests], placeholder: 8, min: 1, max: 15%> <br>
+      <%= f.number_field :people, :value => params[:guests], placeholder: 8, min: 1, max: 15%> <br>
     <% else %>
-      <%= f.text_field :people, placeholder: 8, min: 1, max: 15 %> <br>
+      <%= f.number_field :people, placeholder: 8, min: 1, max: 15 %> <br>
     <% end %>
 
     <div>
