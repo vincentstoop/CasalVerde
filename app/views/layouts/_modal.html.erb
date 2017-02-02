@@ -3,18 +3,18 @@
         <a href="#">BOOK NOW</a>
     </div>
     <div class="bookingmodal">
-        <form action="/my-handling-form-page" method="post">
-            <div class="bookinginput">
+        <form action="/bookings/new" method="get">
+            <div class="bookinginput date">
                 <label for="checkin">Check in</label><br>
-                <input type="text" id="checkin" name="checkin"/>
+                <input type="date" id="checkin" name="checkin"/>
             </div>
-            <div class="bookinginput">
+            <div class="bookinginput date">
                 <label for="checkout">Check out</label><br>
-                <input type="text" id="checkout" name="checkout"/>
+                <input type="date" id="checkout" name="checkout"/>
             </div>
             <div class="bookinginput guests">
                 <label for="guests">Guests</label><br>
-                <input type="text" id="guests" name="guests"/>
+                <input type="number" id="guests" name="guests"/>
             </div>
             <button class="submit" type="submit">BOOK NOW</button>
         </form>

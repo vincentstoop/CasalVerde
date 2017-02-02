@@ -4,13 +4,21 @@
     <hr>
 
     <div>
-      <label>Check In:</label>
-      <%= f.date_field :check_in %>
+      <%= f.label :check_out %>
+      <% if params[:checkin]%>
+        <%= f.date_field :check_in, :value => params[:checkin]%>
+      <% else %>
+        <%= f.date_field :check_in%>
+      <% end %>
     </div>
 
     <div>
-      <label>Check Out:</label>
-      <%= f.date_field :check_out %>
+      <%= f.label :check_out %>
+      <% if params[:checkout]%>
+        <%= f.date_field :check_out, :value => params[:checkout]%>
+      <% else %>
+        <%= f.date_field :check_out%>
+      <% end %>
     </div>
 
     <hr>
@@ -42,7 +50,13 @@
     <%= f.text_field :zip_code, placeholder: "zip code" %> <br>
 
     <%= f.label :people %>
-    <%= f.text_field :people, placeholder: "number of people " %> <br>
+    <% if params[:guests]%>
+      <%= f.text_field :people, :value => params[:guests]%> <br>
+    <% else %>
+      <%= f.text_field :people%> <br>
+    <% end %>
+
+    <!-- <%= f.text_field :people, placeholder: "number of people " %> <br> -->
 
     <div>
       <%= f.submit "Book Now" %>
