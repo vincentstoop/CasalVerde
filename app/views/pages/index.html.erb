@@ -20,3 +20,27 @@
         <a href="#" id="readmore" class="readmore">read more ></a>
     </div>
 </div>
+<div class="reviews-container">
+  <div class="reviews-wrapper">
+    <% @reviews.each do |r| %>
+    <div class="reviews-item">
+      <div class="reviews-header">
+        <p><%= r.name %></p>
+      </div>
+      <div class="reviews-body">
+        <p>
+          <strong>Stars:
+          </strong>
+          <% r.stars.times do %>
+          <%= image_tag 'full_star.svg', class: 'star', alt: 'full star' %>
+          <% end %>
+          <% (5 - r.stars).times do %>
+          <%= image_tag 'empty_star.svg', class: 'star', alt: 'empty star' %>
+          <% end %>
+        </p>
+        <p><%= r.review %></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
