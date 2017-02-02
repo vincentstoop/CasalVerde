@@ -18,7 +18,9 @@ $(document).on('turbolinks:load', function() {
     });
 
     $('body').click(function() {
-        $('.bookingmodal').removeClass('clicked');
+        if ($('#ui-datepicker-div').css('display') == 'none') {
+            $('.bookingmodal').removeClass('clicked');
+        }
     });
 
     $('.bookingmodal').bind('click', function(e) {
