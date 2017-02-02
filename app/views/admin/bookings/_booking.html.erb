@@ -20,18 +20,22 @@
   </div>
   <div class="well-column-group">
     <div class="well-actions">
-      <span>
-        <%= link_to (booking.confirmed? ? "Un-confirm" : "Confirm"), '#',
-            class: 'toggle_confirm',
-            data: { confirmed: booking.confirmed } %>
-      </span>
+      <% if Date.current >= booking.check_in %>
+        <span></span>
+      <% else %>
+        <span>
+          <%= link_to (booking.confirmed? ? "Un-confirm" : "Confirm"), '#',
+              class: 'toggle_confirm',
+              data: { confirmed: booking.confirmed } %>
+        </span>
+        <span>
+          <%= link_to (booking.paid? ? "Not paid" : "Paid"), '#', class: 'toggle_paid',
+              data: { paid: booking.paid } %>
+        </span>
+      <% end %>
       <span>
         <%= link_to "Delete", admin_booking_path(booking), method: :delete,
-            data: { confirm: "Are you sure?" } %>
-      </span>
-      <span>
-        <%= link_to (booking.paid? ? "Not paid" : "Paid"), '#', class: 'toggle_paid',
-            data: { paid: booking.paid } %>
+        data: { confirm: "Are you sure?" } %>
       </span>
     </div>
   </div>
