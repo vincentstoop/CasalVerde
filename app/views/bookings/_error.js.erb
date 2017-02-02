@@ -1,5 +1,0 @@
-$("ul.errors").html("")
-<% if @booking.errors.any? %>
-  <% @booking.errors.full_messages.each do |message| %>
-    $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
-  <% end %>
