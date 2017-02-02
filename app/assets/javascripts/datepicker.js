@@ -33,6 +33,10 @@ function init_pickers() {
     $('#checkout').datepicker();
     $('#booking_check_in').datepicker();
     $('#booking_check_out').datepicker();
+    $('#admin-calendar').datepicker({
+      numberOfMonths: 3,
+      showButtonPanel: true
+    });
 }
 
 $(document).on('turbolinks:load', function() {
