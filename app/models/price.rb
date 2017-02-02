@@ -36,4 +36,9 @@ class Price < ApplicationRecord
     end
     total
   end
+
+  def self.saturdays_only?(check_in)
+    price = Price.where("start_date >= ? AND end_date <= ?", check_in, check_in).first
+    price.saturdays_only
+  end
 end
