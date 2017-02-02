@@ -11,8 +11,8 @@
   <% end %>
   <div class="well-column-group">
     <div class="well-row"><span>Minimum nights:</span><span><%= price.min_days %><span></div>
-    <div class="well-row"><span>Nightly Price:</span><span><%= price.nightly_price %></span></div>
-    <div class="well-row"><span>Price per extra:</span><span><%= price.extra_price %></span></div>
+    <div class="well-row"><span>Nightly Price:</span><span>&euro; <%= price.nightly_price %></span></div>
+    <div class="well-row"><span>Price per extra:</span><span>&euro; <%= price.extra_price %></span></div>
   </div>
   <div class="well-actions">
     <span><%= link_to "Edit", edit_admin_price_path(price) %></span>
