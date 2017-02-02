@@ -50,6 +50,7 @@ streetName, streetNumber, city, zipCode, people) {
             .addClass('validationErrorField')
             .html(key + '  ' + value);
             $(errorMessage).insertAfter('#booking_' + key);
+            $('#booking_' + key).addClass('validationErrorField');
       });
     }
 }
