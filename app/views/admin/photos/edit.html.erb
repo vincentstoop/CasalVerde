@@ -1,0 +1,9 @@
+<%= cl_image_tag(@photo.image, width: 250, height: 200) %> <br>
+<%= form_for ['admin', @photo] do |f| %>
+  <div class="form-group">
+    <%= f.file_field "image", type: :file, multiple: false %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Edit", id: "edit-photos" %>
+  </div>
+<% end %>
