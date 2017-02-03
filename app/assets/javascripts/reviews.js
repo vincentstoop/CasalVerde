@@ -22,10 +22,10 @@ function createReview(name, stars, review) {
             var allStars = "";
 
             for (var i = 0; i < stars; i++) {
-                allStars += '<img src="assets/full_star.svg" alt="full star" class="star"> ';
+                allStars += '<img src="assets/images/full_star.svg" alt="full star" class="star"> ';
             }
-            for (var z = 0; i < (stars - 5); z++) {
-                allStars += '<img src="assets/empty_star.svg" alt="full star" class="star"> ';
+            for (var z = 0; z < (5 - stars); z++) {
+                allStars += '<img src="assets/images/empty_star.svg" alt="full star" class="star"> ';
             }
 
             var reviewitem = $('<div>').attr('class', 'reviews-all-item')
