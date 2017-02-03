@@ -24,7 +24,7 @@
             <% if params[:guests]%>
             <%= f.number_field :people, :value => params[:guests], min: 1, max: 15%>
         <% else %>
-            <%= f.number_field :people, min: 1, max: 15 %>
+            <%= f.number_field :people, :value => 1, min: 1, max: 15 %>
             <% end %>
         </div>
         <div class="buttons">
