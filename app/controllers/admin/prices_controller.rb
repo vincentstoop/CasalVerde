@@ -37,19 +37,6 @@ class Admin::PricesController < Admin::BaseController
     redirect_to admin_prices_path
   end
 
-  def calculate_price
-    price = Price.total_price(params:[:checkin], params:[:checkout], params:[:guests])
-    if price
-      render status: 200, json: {
-        price: price
-      }.to_json
-    else
-      render status: 422, json: {
-        errors: price.errors
-      }.to_json
-    end
-  end
-
   private
     def price_params
       params.require(:price).permit(:start_date, :end_date, :min_days,
