@@ -1,5 +1,8 @@
 $(document).on('turbolinks:load', function() {
     $('#new_booking').bind('submit', submitBooking);
+    $('#booking_check_in').blur('blur', showPrice);
+    $('#booking_check_out').blur('blur', showPrice);
+    $('#booking_people').blur(showPrice);
 });
 
 function submitBooking(event) {
@@ -76,4 +79,29 @@ function capitalizeFirstLetter(str) {
 function cleanUpErrors() {
   $('ul.errorList').remove();
   $('.validationErrorField').removeClass('validationErrorField');
+}
+
+function showPrice() {
+  var check_in = $("#booking_check_in").val();
+  var check_out = $("#booking_check_out").val();
+  var people = $("#booking_people").val();
+
+  $.ajax({
+    type: 'GET',
+    url: '/prices/calculate_price',
+    contentType: "application/json",
+    dataType: "json",
+    data: JSON.stringify({
+      checkin: check_in,
+      checkout: check_out,
+      guests: people
+    })
+  })
+  .done(function(data){
+    debugger;
+    $("#total_price").html(data.price);
+  })
+  .fail(function(errors){
+    debugger;
+  });
 }
