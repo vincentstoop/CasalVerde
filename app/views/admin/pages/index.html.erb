@@ -11,7 +11,8 @@
         </div>
       <% end %>
     <% end %>
-    <%= link_to "Edit paragraphs", admin_page_paragraphs_path(page.id) %> | <%= link_to "Delete page", admin_page_path(page), :data => {:confirm => 'Are you sure? Once deleted, your page is gone.'}, method: :delete, class: "" %>
+    <%= link_to "Edit paragraphs", admin_page_paragraphs_path(page.id) %><% if page.name != "home_page" %> | 
+<%= link_to "Delete page", admin_page_path(page), :data => {:confirm => 'Are you sure? Once deleted, your page is gone.'}, method: :delete, class: "" %> <% end %>
 
     <hr>
 <% end %>
