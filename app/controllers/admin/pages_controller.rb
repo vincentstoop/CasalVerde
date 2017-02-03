@@ -8,6 +8,7 @@ class Admin::PagesController < Admin::BaseController
 
   def create
     @page = Page.new(page_params)
+    @page.hidden = true
 
     if @page.save
       redirect_to admin_pages_path
@@ -21,9 +22,29 @@ class Admin::PagesController < Admin::BaseController
     @page = Page.find(params[:id])
   end
 
+  def update
+    page_to_update = Page.find(params[:id])
+
+    if page_to_update.update(page_params)
+      redirect_to admin_pages_path
+    else
+      render :index
+    end
+  end
+
+  def destroy
+    page_to_destroy = Page.find(params[:id])
+
+    if page_to_destroy.destroy
+      redirect_to admin_pages_path
+    else
+      redirect_to admin_pages_path
+    end
+  end
+
   private
 
   def page_params
-    params.require(:page).permit(:name)
+    params.require(:page).permit(:name, :hidden)
   end
 end
