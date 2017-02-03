@@ -1,5 +1,5 @@
 <h1>Paragraphs for "<%= @page.name.gsub(/[^0-9A-Za-z]/, '').capitalize %>"</h1>
-<% @paragraphs.each_with_index do |p, index| %>
+<% @page.paragraphs.each_with_index do |p, index| %>
   <h2>Paragraph <%= index + 1 %></h2>
     <%= form_for ['admin', @page, p] do |f| %>
       <div class="page-group">

@@ -1,11 +1,28 @@
 <h1>Pages</h1>
 
-<%= link_to "Edit carousel pictures", admin_page_photos_path(@homepage.id) %>
-
 <% @pages.each do |page| %>
   <h2><%= page.name.gsub(/[^0-9A-Za-z]/, '').capitalize %></h2>
-  <% if page.name == "home_page" %>
-    <%= link_to "Edit paragraphs", admin_page_paragraphs_path(page.id) %>
-  <% end %>
-    <!-- Link to paragraph edit -->
+    <% if page.name != "home_page" %>
+      <%= form_for ['admin', page] do |p| %>
+        <div class="form-group">
+          <%= p.label :hidden %>
+          <%= p.check_box :hidden %>
+          <%= p.submit "Save", class: "edit-paragraphs" %>
+        </div>
+      <% end %>
+    <% end %>
+    <%= link_to "Edit paragraphs", admin_page_paragraphs_path(page.id) %> | <%= link_to "Delete page", admin_page_path(page), :data => {:confirm => 'Are you sure? Once deleted, your page is gone.'}, method: :delete, class: "" %>
+
+    <hr>
+<% end %>
+
+<h1>Add new page</h1>
+<%= form_for ['admin', @page] do |f| %>
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+  <div class="form-group">
+    <%= f.submit "Add", class: "add-page" %>
+  </div>
 <% end %>

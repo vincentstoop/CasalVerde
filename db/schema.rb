@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170203135726) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
+    t.boolean  "hidden"
   end
 
   create_table "paragraphs", force: :cascade do |t|

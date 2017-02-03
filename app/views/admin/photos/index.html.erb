@@ -1,22 +1,22 @@
-<h1>Photos</h1>
+<h1>Carousel Photos</h1>
 
 <% @photos.each do |p| %>
   <%= cl_image_tag(p.image, width: 300, height: 200) %> <br>
-  <%= form_for ['admin', @page, p] do |f| %>
+  <%= form_for ['admin', p] do |f| %>
     <div class="form-group">
       <%= f.file_field :image, type: :file, multiple: false, class: "file-photo" %>
     </div>
     <div class="form-group">
       <%= f.submit "Edit", class: "edit-photos" %>
   <% end %>
-    <%= button_to "Delete", admin_page_photo_path(@page, p), confirm: "Are you sure? Once deleted, all your text is gone!", method: :delete, class: "delete-photos" %>
+    <%= button_to "Delete", admin_photo_path(p), confirm: "Are you sure? Once deleted, all your text is gone!", method: :delete, class: "delete-photos" %>
     </div>
 
   <hr>
 <% end %>
 
 <h1>Add photo</h1>
-<%= form_for ['admin', @page, @photo] do |f| %>
+<%= form_for ['admin', @photo] do |f| %>
   <div class="form-group">
     <%= f.file_field :image, type: :file, multiple: false %>
   </div>
