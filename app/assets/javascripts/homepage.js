@@ -30,15 +30,15 @@ $(document).on('turbolinks:load', function() {
     $('#readmore').bind('click', function(e) {
         e.preventDefault();
         if ($('#home-text-wrapper').hasClass('home-text-hidden')) {
-            $('#home-text-wrapper').removeClass('home-text-hidden');
             setTimeout(function() {
                 $('#readmore').text('< show less');
-            }, 1000);
+            }, 200);
+            $('#home-text-wrapper').removeClass('home-text-hidden');
         } else {
-            $('#home-text-wrapper').addClass('home-text-hidden');
             setTimeout(function() {
                 $('#readmore').text('read more >');
-            }, 1000);
+            }, 200);
+            $('#home-text-wrapper').addClass('home-text-hidden');
 
         }
     });

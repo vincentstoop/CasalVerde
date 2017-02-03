@@ -1,5 +1,27 @@
 .errorList {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.people {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 10px;
+    margin: 2px;
+    .input {
+      width: 50%;
+      margin-right: auto;
+      margin-bottom: 5px;
+    }
+}
+.buttons {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+    .people_button {
+        width: 30px;
+        margin-right: 20px;
+    }
 }
