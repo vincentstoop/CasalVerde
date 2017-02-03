@@ -16,7 +16,7 @@
         <% else %>
             <%= f.text_field :check_out%>
             <% end %>
-      </div>
+        </div>
     </div>
     <fieldset>
         <%= f.label :title %>
@@ -47,18 +47,21 @@
         <%= f.label :zip_code %>
         <%= f.text_field :zip_code %>
     </fieldset>
-    <fieldset>
-        <%= f.label :people %>
+    <div class="people">
+        <div class="input">
+          <%= f.label :people %>
+            <% if params[:guests]%>
+            <%= f.number_field :people, :value => params[:guests], min: 1, max: 15%>
 
-        <% if params[:guests]%>
-        <%= f.number_field :people, :value => params[:guests], min: 1, max: 15%>
-
-    <% else %>
-        <%= f.number_field :people, min: 1, max: 15 %>
-
-        <% end %>
-    </fieldset>
-
+        <% else %>
+            <%= f.number_field :people, min: 1, max: 15 %>
+            <% end %>
+        </div>
+        <div class="buttons">
+          <a href="#" class="remove_people">  <%= image_tag 'minus.svg', class: 'people_button', alt: 'minus' %></a>
+          <a href="#" class="add_people">  <%= image_tag 'plus.svg', class: 'people_button', alt: 'plus' %></a>
+        </div>
+    </div>
     <button type="submit" name="button" class="submit">book now</button>
 
     <% end %>

@@ -69,13 +69,35 @@ function createBooking(startDate, endDate, firstName, lastName, title, phone, em
 
 function capitalizeFirstLetter(str) {
     return str.replace(str.charAt(0), str.charAt(0).toUpperCase());
-};
+}
 
 function cleanUpErrors() {
     $('ul.errorList').remove();
     $('.validationErrorField').removeClass('validationErrorField');
 }
 
+function add_people(event) {
+    event.preventDefault();
+    var oldValue = $('#booking_people').val();
+    if (!oldValue) oldValue = 0;
+    if (oldValue < 15) {
+        var newVal = parseFloat(oldValue) + 1;
+        $('#booking_people').val(newVal);
+    }
+}
+
+function remove_people(event) {
+    event.preventDefault();
+    var oldValue = $('#booking_people').val();
+    if (!oldValue) oldValue = 0;
+    if (oldValue > 1) {
+        var newVal = parseFloat(oldValue) - 1;
+        $('#booking_people').val(newVal);
+    }
+}
+
 $(document).on('turbolinks:load', function() {
     $('#new_booking').bind('submit', submitBooking);
+    $('.remove_people').bind('click', remove_people);
+    $('.add_people').bind('click', add_people);
 });
