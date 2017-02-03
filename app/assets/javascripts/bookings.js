@@ -83,6 +83,8 @@ function add_people(event) {
     if (oldValue < 15) {
         var newVal = parseFloat(oldValue) + 1;
         $('#booking_people').val(newVal);
+        $('#booking_people').trigger('change');
+
     }
 }
 
@@ -93,6 +95,7 @@ function remove_people(event) {
     if (oldValue > 1) {
         var newVal = parseFloat(oldValue) - 1;
         $('#booking_people').val(newVal);
+        $('#booking_people').trigger('change');
     }
 }
 
@@ -100,6 +103,8 @@ function showPrice() {
   var check_in = $("#booking_check_in").val();
   var check_out = $("#booking_check_out").val();
   var people = $("#booking_people").val();
+  $('#datein').html(check_in);
+  $('#dateout').html(check_out);
 
   var newPrice = {
       checkin: check_in,
@@ -117,19 +122,18 @@ function showPrice() {
     })
   })
   .done(function(data){
-    $("#total_price").html(data.price);
+    $("#total_price").html("€ " + Number(data.price).toLocaleString());
   })
   .fail(function(errors){
   });
 }
 
 $(document).on('turbolinks:load', function() {
-      $('#new_booking').bind('submit', submitBooking);
+    $('#new_booking').bind('submit', submitBooking);
     $('.remove_people').bind('click', remove_people);
     $('.add_people').bind('click', add_people);
+    showPrice();
     $('#booking_check_in').on('change', showPrice);
     $('#booking_check_out').on('change', showPrice);
     $('#booking_people').on('change', showPrice);
-    showPrice();
 });
-
