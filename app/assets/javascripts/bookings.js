@@ -52,19 +52,19 @@ function createBooking(startDate, endDate, firstName, lastName, title, phone, em
             dataType: "json"
         })
         .done(function(data) {
-          var loc = window.location;
-          window.location = loc.protocol+"//"+loc.hostname+":"+loc.port+"/bookings/"+data.booking.id;
+            var loc = window.location;
+            window.location = loc.protocol + "//" + loc.hostname + ":" + loc.port + "/bookings/" + data.booking.id;
         })
         .fail(function(errors) {
             showErrors(errors);
-        })
+        });
 
     function showErrors(errors) {
         var errorObject = errors.responseJSON.errors;
         $.each(errorObject, function(key, value) {
             var errorMessages = $('<ul></ul>')
                 .addClass('errorList');
-            var errorMessage = $('<li></li>')
+            var errorMessage = $('<li></li>').addClass('error-message')
                 .html(capitalizeFirstLetter(key).split('_').join(' ') + '  ' + value);
             errorMessages.append(errorMessage);
             $(errorMessages).insertAfter('#booking_' + key);
@@ -78,8 +78,8 @@ function capitalizeFirstLetter(str) {
 };
 
 function cleanUpErrors() {
-  $('ul.errorList').remove();
-  $('.validationErrorField').removeClass('validationErrorField');
+    $('ul.errorList').remove();
+    $('.validationErrorField').removeClass('validationErrorField');
 }
 
 function showPrice() {
