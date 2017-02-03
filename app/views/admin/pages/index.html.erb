@@ -3,8 +3,8 @@
 <% @pages.each do |page| %>
   <h2><%= page.name %></h2>
   <% if page.name == "home_page" %>
-    <li><%= link_to "Edit photos", admin_photos_path %></li>
-    <li><%= link_to "Edit paragraphs", admin_paragraphs_path %></li>
+    <li><%= link_to "Edit paragraphs", admin_page_paragraphs_path(page.id) %></li>
+    <li><%= link_to "Edit photos", admin_page_carousels_path(page.id) %></li>
   <% end %>
     <!-- Link to paragraph edit -->
 <% end %>
