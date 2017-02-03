@@ -43,11 +43,6 @@ ActiveRecord::Schema.define(version: 20170202101224) do
     t.index ["page_id"], name: "index_carousels_on_page_id", using: :btree
   end
 
-  create_table "homepages", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "pages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

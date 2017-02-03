@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Booking, type: :model do
+describe Booking do
   it { is_expected.to validate_presence_of(:check_in)}
   it { is_expected.to validate_presence_of(:check_out)}
   it { is_expected.to validate_presence_of(:first_name)}
@@ -15,4 +15,12 @@ RSpec.describe Booking, type: :model do
   it { is_expected.to validate_presence_of(:people)}
   it { is_expected.to validate_presence_of(:paid)}
   it { is_expected.to validate_presence_of(:total_price)}
+
+  describe "validations" do
+    it "has a working factory" do
+      let(:new_booking) {build :booking }
+      new_booking.valid?
+      expect(room.errors).not_to have_key(:room)
+    end
+  end
 end

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :booking do
-    check_in        DateTime.now
+    check_in        Date.tomorrow
     check_out       10.days.from_now
     first_name      "John"
     last_name       "Doe"
@@ -12,8 +12,8 @@ FactoryGirl.define do
     city            "Amsterdam"
     zip_code        "3534AA"
     people           8
-    total_price      10.20
-    confimed         false
+    total_price      1020
+    confirmed        false
     paid             false
   end
 end
