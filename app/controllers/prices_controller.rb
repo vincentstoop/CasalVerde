@@ -1,7 +1,8 @@
 class PricesController < ApplicationController
 
   def calculate_price
-    price = Price.total_price(check_in, check_out, people)
+    price = Price.total_price(params["price"]["checkin"].to_date, params["price"]["checkout"].to_date, (params["price"]["guests"]).to_i)
+
     if price
       render status: 200, json: {
         price: price
@@ -12,7 +13,5 @@ class PricesController < ApplicationController
       }.to_json
     end
   end
-
-  private
 
 end

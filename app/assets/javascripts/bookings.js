@@ -1,8 +1,9 @@
 $(document).on('turbolinks:load', function() {
     $('#new_booking').bind('submit', submitBooking);
-    $('#booking_check_in').blur('blur', showPrice);
-    $('#booking_check_out').blur('blur', showPrice);
-    $('#booking_people').blur(showPrice);
+    $('#booking_check_in').on('change', showPrice);
+    $('#booking_check_out').on('change', showPrice);
+    $('#booking_people').on('change', showPrice);
+    showPrice();
 });
 
 function submitBooking(event) {
@@ -86,22 +87,24 @@ function showPrice() {
   var check_out = $("#booking_check_out").val();
   var people = $("#booking_people").val();
 
+  var newPrice = {
+      checkin: check_in,
+      checkout: check_out,
+      guests: people
+  }
+
   $.ajax({
-    type: 'GET',
+    type: 'POST',
     url: '/prices/calculate_price',
     contentType: "application/json",
     dataType: "json",
     data: JSON.stringify({
-      checkin: check_in,
-      checkout: check_out,
-      guests: people
+      price: newPrice
     })
   })
   .done(function(data){
-    debugger;
     $("#total_price").html(data.price);
   })
   .fail(function(errors){
-    debugger;
   });
 }

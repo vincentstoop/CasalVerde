@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :prices, only: [:calculate_price] do
-    get :calculate_price, on: :collection
+    post :calculate_price, on: :collection
   end
 
   namespace :admin do
