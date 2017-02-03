@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :pages, only: [:index] do
+  resources :pages, only: [:index, :show] do
     get :photogallery, on: :collection
     get :prices, on: :collection
   end

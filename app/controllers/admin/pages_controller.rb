@@ -8,6 +8,7 @@ class Admin::PagesController < Admin::BaseController
 
   def create
     @page = Page.new(page_params)
+    @page.hidden = true
 
     if @page.save
       redirect_to admin_pages_path
