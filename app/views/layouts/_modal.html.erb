@@ -13,8 +13,14 @@
                 <input type="text" id="checkout" name="checkout"/>
             </div>
             <div class="bookinginput guests">
-                <label for="guests">Guests</label><br>
-                <input type="number" id="guests" name="guests" min="1" max="15"/>
+                <div class="input-modal">
+                  <label for="guests">Guests</label>
+                  <input type="number" id="guests" name="guests" min="1" max="15"/>
+                </div>
+                <div class="buttons-modal">
+                  <a href="#" id="remove_people_modal">  <%= image_tag 'minus.svg', class: 'people_button_modal', alt: 'minus' %></a>
+                  <a href="#" id="add_people_modal">  <%= image_tag 'plus.svg', class: 'people_button_modal', alt: 'plus' %></a>
+                </div>
             </div>
             <button class="submit" type="submit">BOOK NOW</button>
         </form>
