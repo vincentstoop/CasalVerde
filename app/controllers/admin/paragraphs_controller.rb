@@ -15,7 +15,7 @@ class Admin::ParagraphsController < Admin::BaseController
     paragraph = Paragraph.find(params[:id])
 
     if paragraph.update(paragraph_params)
-      redirect_to admin_paragraphs_path
+      redirect_to admin_page_paragraphs_path
     else
       render :edit
     end
