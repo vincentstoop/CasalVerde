@@ -30,39 +30,49 @@ User.create!(email: "admin@example.com", password: "foobar", password_confirmati
 
 # Prices
 Price.destroy_all
-Price.create!(start_date: "2016-09-02", end_date: "2016-12-31", min_days: 3,
-              nightly_price: 700.00, extra_price: 140.00, service_costs: 500.00)
-Price.create!(start_date: "2017-01-01", end_date: "2017-05-31", min_days: 3,
-              nightly_price: 400.00, extra_price: 100.00, service_costs: 500.00)
-Price.create!(start_date: "2017-06-01", end_date: "2017-08-31", min_days: 3,
-              nightly_price: 800.00, extra_price: 140.00, service_costs: 500.00,
+
+Price.create!(start_date: "2016-10-29", end_date: "2017-03-31", min_days: 3,
+              nightly_price: 214.14, extra_price: 20.00, service_costs: 500.00)
+
+Price.create!(start_date: "2017-04-01", end_date: "2017-06-23", min_days: 3,
+              nightly_price: 357.00, extra_price: 20.00, service_costs: 500.00)
+
+Price.create!(start_date: "2017-06-24", end_date: "2017-09-01", min_days: 7,
+              nightly_price: 428.42, extra_price: 20.00, service_costs: 500.00,
               saturdays_only: true)
+
+Price.create!(start_date: "2017-09-02", end_date: "2017-11-03", min_days: 3,
+              nightly_price: 357.00, extra_price: 20.00, service_costs: 500.00)
+
+Price.create!(start_date: "2017-11-04", end_date: "2018-03-31", min_days: 3,
+              nightly_price: 214.14, extra_price: 20.00, service_costs: 500.00)
+
 # Booking
 Booking.destroy_all
 
-# Figure out how to avoid validation
-Booking.new(check_in: "2016-12-01", check_out: "2016-12-15", first_name: "Past",
-            last_name: "Guest", title: "Mr.", phone: 1234,
-            email: "Pino@sesamestreet.com", street_name: "Sesame Street",
-            street_number: "456", city: "Somewhere", zip_code: "1234 CD", people: 9,
-            confirmed: true, paid: true).save(validate: false)
+def createbooking(ci, co, cf, pa)
+  Booking.new(
+  check_in: ci,
+  check_out: co,
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  title: Faker::Name.prefix,
+  phone: Faker::PhoneNumber.cell_phone,
+  email: Faker::Internet.email,
+  street_name: Faker::Address.street_name,
+  street_number: Faker::Number.number(2).to_s,
+  city: Faker::Address.city,
+  zip_code: Faker::Address.zip_code,
+  people: rand(10) + 5,
+  confirmed: cf,
+  paid: pa
+  ).save(validate: false)
+end
 
-Booking.new(check_in: "2017-02-01", check_out: "2017-02-15", first_name: "Bert",
-            last_name: "Ernie", title: "Mr.", phone: 1234,
-            email: "BertandErnie@sesamestreet.com", street_name: "Sesame Street",
-            street_number: "123", city: ":O", zip_code: "1234 AB", people: 2,
-            confirmed: true, paid: true).save(validate: false)
-
-Booking.new(check_in: "2017-02-16", check_out: "2017-02-28", first_name: "Mike",
-            last_name: "Blah", title: "Mr.", phone: 5678,
-            email: "mike@example.com", street_name: "Main Street",
-            street_number: "30a", city: "Los Angeles", zip_code: "90210", people: 10).save(validate: false)
-
-Booking.new(check_in: "2017-03-10", check_out: "2017-03-30", first_name: "Mary",
-            last_name: "Poppins", title: "Mrs.", phone: 9872,
-            email: "Mary@poppins.com", street_name: "WhateverStreet",
-            street_number: "7320", city: "London", zip_code: "83921", people: 8,
-            confirmed: true).save(validate: false)
+createbooking(14.days.ago, 7.days.ago, true, true)
+createbooking(Date.today, Date.today.advance(days: 7), true, true)
+createbooking(Date.today.advance(weeks: 3), Date.today.advance(weeks: 4), true, false)
+createbooking(Date.today.advance(months: 2), Date.today.advance(months: 2, weeks: 1), false, false)
 
 # Reviews
 Review.destroy_all
