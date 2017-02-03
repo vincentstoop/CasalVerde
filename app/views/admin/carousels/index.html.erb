@@ -1,0 +1,6 @@
+<h1>Carousels for <%= @page.name %></h1>
+<% @carousels.each do |c| %>
+  <% if c.page_id == @page.id %>
+    <p><%= link_to c.name, admin_page_carousel_photos_path(@page, c) %></p>
+  <% end %>
+<% end %>

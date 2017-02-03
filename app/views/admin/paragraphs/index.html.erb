@@ -1,0 +1,20 @@
+<h1>Paragraphs</h1>
+<% @paragraphs.each do |p| %>
+  <h2>Paragraph <%= p.id %></h2>
+  <p><%= p.text %></p>
+  <%= link_to "Edit", edit_admin_page_paragraph_path(@page, p) %> |
+   <%= link_to "Delete paragraph", admin_page_paragraph_path(@page, p), confirm: "Are you sure? Once deleted, all your text is gone!", method: :delete %>
+<% end %>
+
+<hr>
+
+<h1>Add paragraph</h1>
+<%= form_for ['admin', @page, @paragraph] do |f| %>
+  <div class="form-group">
+    <%= f.label :text %>
+    <%= f.text_area :text %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Add", id: "edit-paragraphs" %>
+  </div>
+<% end %>

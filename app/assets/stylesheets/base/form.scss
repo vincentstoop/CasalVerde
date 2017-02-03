@@ -8,6 +8,21 @@
         display: block;
     }
 
+    fieldset {
+        border: none;
+    }
+
+    .picker {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px;
+      margin: 2px;
+      div {
+        width: 40%;
+      }
+    }
+
     textarea {
         min-width: 100%;
         max-width: 600px;
