@@ -3,7 +3,22 @@ class Admin::PhotosController < Admin::BaseController
     @photos = Photo.all
     @page = Page.find(params[:page_id])
     @carousel = Carousel.find(params[:carousel_id])
+    @photo = Photo.new
   end
+
+  def create
+    @photo = Photo.new(photo_params)
+    @page = Page.find(params[:page_id])
+    @photo.photo_page_id = @page.id
+    @photo.photo_page_type = "Carousel"
+
+    if @photo.save
+      redirect_to controller: :photos, action: :index
+    else
+      render "index"
+    end
+  end
+
   def edit
     @photo = Photo.find(params[:id])
     @page = Page.find(params[:page_id])
@@ -16,7 +31,7 @@ class Admin::PhotosController < Admin::BaseController
     if photo.update(photo_params)
       redirect_to controller: :photos, action: :index
     else
-      render :edit
+      render "edit"
     end
   end
 

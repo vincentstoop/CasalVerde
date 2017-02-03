@@ -5,3 +5,13 @@
   <%= link_to "Edit", edit_admin_page_carousel_photo_path(@page, @carousel, p) %>| <%= link_to "Delete", admin_page_carousel_photo_path(@page, @carousel, p), confirm: "Are you sure? Once deleted, all your text is gone!", method: :delete %>
   <hr>
 <% end %>
+
+<h1>Add photo</h1>
+<%= form_for ['admin', @page, @carousel, @photo] do |f| %>
+  <div class="form-group">
+    <%= f.file_field :image, type: :file, multiple: false %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Add", id: "add-paragraphs" %>
+  </div>
+<% end %>
