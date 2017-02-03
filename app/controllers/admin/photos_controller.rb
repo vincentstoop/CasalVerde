@@ -1,13 +1,13 @@
 class Admin::PhotosController < Admin::BaseController
   def index
     @photos = Photo.all.order(:id)
-    @page = Page.find(params[:page_id])
+    @page = Page.find_by(name: "home_page")
     @photo = Photo.new
   end
 
   def create
     @photo = Photo.new(photo_params)
-    @page = Page.find(params[:page_id])
+    @page = Page.find_by(name: "home_page")
     @photo.photo_page_id = @page.id
     @photo.photo_page_type = "Carousel"
 
@@ -20,7 +20,6 @@ class Admin::PhotosController < Admin::BaseController
 
   def edit
     @photo = Photo.find(params[:id])
-    @page = Page.find(params[:page_id])
   end
 
   def update
@@ -35,12 +34,11 @@ class Admin::PhotosController < Admin::BaseController
 
   def destroy
     @photo = Photo.find(params[:id])
-    @page = Page.find(params[:page_id])
 
     if @photo.destroy
-      redirect_to admin_page_photos_path
+      redirect_to admin_photos_path
     else
-      redirect_to admin_page_photos_path, notice: "Fuck you"
+      redirect_to admin_photos_path, notice: "Fuck you"
     end
   end
 
