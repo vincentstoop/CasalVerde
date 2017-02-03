@@ -22,29 +22,7 @@
     </div>
 </div>
 
-<h2 class="headings text-align">Prices</h2>
-<div class="content prices-container text-align">
-  <% @prices.each do |price| %>
-    <div class="well">
-      <div class="well-row-group">
-        <span><%= price.start_date %></span>
-        <span><%= price.end_date %></span>
-      </div>
-      <% if price.saturdays_only %>
-      <div class="well-row-group">
-        <span>Check in/out on Saturdays only</span>
-      </div>
-      <% end %>
-      <div class="well-divider"></div>
-      <div class="well-column-group">
-        <div class="well-row"><span>Minimum nights:</span><span><%= price.min_days %><span></div>
-        <div class="well-row"><span>Nightly Price:</span><span><%= money(price.nightly_price) %></span></div>
-        <div class="well-row"><span>Price per extra person:</span><span><%= money(price.extra_price) %></span></div>
-        <div class="well-row"><span>Service costs:</span><span><%= money(price.service_costs) %></span></div>
-      </div>
-    </div>
-  <% end %>
-</div>
+
 
 <div class="reviews-container">
   <div class="reviews-wrapper">

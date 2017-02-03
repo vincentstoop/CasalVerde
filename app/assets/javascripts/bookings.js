@@ -1,4 +1,4 @@
-
+/* global $ */
 function submitBooking(event) {
     event.preventDefault();
     cleanUpErrors(this);
@@ -33,7 +33,7 @@ function createBooking(startDate, endDate, firstName, lastName, title, phone, em
         city: city,
         zip_code: zipCode,
         people: people
-    }
+    };
 
     $.ajax({
             type: "POST",
@@ -97,39 +97,35 @@ function remove_people(event) {
 }
 
 function showPrice() {
-  var check_in = $("#booking_check_in").val();
-  var check_out = $("#booking_check_out").val();
-  var people = $("#booking_people").val();
+    var check_in = $("#booking_check_in").val();
+    var check_out = $("#booking_check_out").val();
+    var people = $("#booking_people").val();
 
-  var newPrice = {
-      checkin: check_in,
-      checkout: check_out,
-      guests: people
-  }
+    var newPrice = {
+        checkin: check_in,
+        checkout: check_out,
+        guests: people
+    };
 
-  $.ajax({
-    type: 'POST',
-    url: '/prices/calculate_price',
-    contentType: "application/json",
-    dataType: "json",
-    data: JSON.stringify({
-      price: newPrice
-    })
-  })
-  .done(function(data){
-    $("#total_price").html(data.price);
-  })
-  .fail(function(errors){
-  });
+    $.ajax({
+            type: 'POST',
+            url: '/prices/calculate_price',
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify({
+                price: newPrice
+            })
+        })
+        .done(function(data) {
+            $("#total_price").html(data.price);
+        });
 }
 
 $(document).on('turbolinks:load', function() {
-      $('#new_booking').bind('submit', submitBooking);
+    $('#new_booking').bind('submit', submitBooking);
     $('.remove_people').bind('click', remove_people);
     $('.add_people').bind('click', add_people);
     $('#booking_check_in').on('change', showPrice);
     $('#booking_check_out').on('change', showPrice);
     $('#booking_people').on('change', showPrice);
-    showPrice();
 });
-
