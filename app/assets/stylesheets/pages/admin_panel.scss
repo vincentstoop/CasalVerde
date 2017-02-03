@@ -74,6 +74,28 @@ div.form-group {
   }
 }
 
+div.page-group {
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+  align-items: left;
+  label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+}
+
+div.page-group textarea {
+  min-width: 300px;
+  height: 200px;
+}
+
+div.page-group #paragraph_heading  {
+  width: 300px;
+  font-weight: bold;
+}
+
 div.well {
   max-width: 300px;
   padding: 10px;

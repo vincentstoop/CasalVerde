@@ -2,11 +2,15 @@
 <% @paragraphs.each_with_index do |p, index| %>
   <h2>Paragraph <%= index + 1 %></h2>
     <%= form_for ['admin', @page, p] do |f| %>
-      <div class="form-group">
+      <div class="page-group">
+        <%= f.label :heading %>
+        <%= f.text_field :heading %>
+      </div>
+      <div class="page-group">
         <%= f.label :text %>
         <%= f.text_area :text %>
       </div>
-      <div class="form-group">
+      <div class="page-group">
         <%= f.submit "Edit", class: "edit-paragraphs" %>
       <% end %>
       <%= button_to "Delete", admin_page_paragraph_path(@page, p), confirm: "Are you sure? Once deleted, all your text is gone!", method: :delete, class: "delete-paragraphs" %>
@@ -17,11 +21,15 @@
 
 <h1>Add paragraph</h1>
 <%= form_for ['admin', @page, @paragraph] do |f| %>
-  <div class="form-group">
+<div class="page-group">
+  <%= f.label :heading %>
+  <%= f.text_field :heading %>
+</div>
+  <div class="page-group">
     <%= f.label :text %>
     <%= f.text_area :text %>
   </div>
-  <div class="form-group">
+  <div class="page-group">
     <%= f.submit "Add", class: "edit-paragraphs" %>
   </div>
 <% end %>
