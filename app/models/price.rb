@@ -1,4 +1,6 @@
 class Price < ApplicationRecord
+  scope :except_past, -> { where("end_date >= ?", Date.today).order(:end_date) }
+
   validates :start_date, presence: true
   validates :end_date, presence: true
   validate :end_date_cant_be_before_start_date
