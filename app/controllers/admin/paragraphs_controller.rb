@@ -6,12 +6,6 @@ class Admin::ParagraphsController < Admin::BaseController
     @paragraph = Paragraph.new
   end
 
-  def edit
-    @paragraph = Paragraph.find(params[:id])
-    @page = Page.find(params[:page_id])
-    @paragraph.page_id = @page.id
-  end
-
   def create
     @paragraph = Paragraph.new(paragraph_params)
     @page = Page.find(params[:page_id])

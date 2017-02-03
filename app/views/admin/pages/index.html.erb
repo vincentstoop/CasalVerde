@@ -1,10 +1,11 @@
 <h1>Pages</h1>
 
+<%= link_to "Edit carousel pictures", admin_page_carousel_photos_path(@homepage.id, @carousel.id) %>
+
 <% @pages.each do |page| %>
-  <h2><%= page.name %></h2>
+  <h2><%= page.name.gsub(/[^0-9A-Za-z]/, '').capitalize %></h2>
   <% if page.name == "home_page" %>
-    <li><%= link_to "Edit paragraphs", admin_page_paragraphs_path(page.id) %></li>
-    <li><%= link_to "Edit carousels", admin_page_carousels_path(page.id) %></li>
+    <%= link_to "Edit paragraphs", admin_page_paragraphs_path(page.id) %>
   <% end %>
     <!-- Link to paragraph edit -->
 <% end %>

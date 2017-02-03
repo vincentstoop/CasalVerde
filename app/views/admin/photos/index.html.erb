@@ -1,8 +1,17 @@
 <h1>Photos</h1>
 
 <% @photos.each do |p| %>
-  <%= cl_image_tag(p.image, width: 250, height: 200) %> <br>
-  <%= link_to "Edit", edit_admin_page_carousel_photo_path(@page, @carousel, p) %>| <%= link_to "Delete", admin_page_carousel_photo_path(@page, @carousel, p), confirm: "Are you sure? Once deleted, all your text is gone!", method: :delete %>
+  <%= cl_image_tag(p.image, width: 300, height: 200) %> <br>
+  <%= form_for ['admin', @page, @carousel, @photo] do |f| %>
+    <div class="form-group">
+      <%= f.file_field :image, type: :file, multiple: false, class: "file-photo" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Edit", class: "edit-photos" %>
+        <%= button_to "Delete", admin_page_carousel_photo_path(@page, @carousel, p), confirm: "Are you sure? Once deleted, all your text is gone!", method: :delete, class: "delete-photos" %>
+    </div>
+  <% end %>
+
   <hr>
 <% end %>
 
@@ -12,7 +21,7 @@
     <%= f.file_field :image, type: :file, multiple: false %>
   </div>
   <div class="form-group">
-    <%= f.submit "Add", id: "add-paragraphs" %>
+    <%= f.submit "Add", class: "add-photo" %>
   </div>
 <% end %>
 
