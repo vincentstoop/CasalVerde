@@ -1,4 +1,10 @@
-/* global $ */
+$(document).on('turbolinks:load', function() {
+    $('#new_booking').bind('submit', submitBooking);
+    $('#booking_check_in').on('change', showPrice);
+    $('#booking_check_out').on('change', showPrice);
+    $('#booking_people').on('change', showPrice);
+    showPrice();
+});
 
 function submitBooking(event) {
     event.preventDefault();
@@ -76,6 +82,29 @@ function cleanUpErrors() {
     $('.validationErrorField').removeClass('validationErrorField');
 }
 
-$(document).on('turbolinks:load', function() {
-    $('#new_booking').bind('submit', submitBooking);
-});
+function showPrice() {
+  var check_in = $("#booking_check_in").val();
+  var check_out = $("#booking_check_out").val();
+  var people = $("#booking_people").val();
+
+  var newPrice = {
+      checkin: check_in,
+      checkout: check_out,
+      guests: people
+  }
+
+  $.ajax({
+    type: 'POST',
+    url: '/prices/calculate_price',
+    contentType: "application/json",
+    dataType: "json",
+    data: JSON.stringify({
+      price: newPrice
+    })
+  })
+  .done(function(data){
+    $("#total_price").html(data.price);
+  })
+  .fail(function(errors){
+  });
+}
