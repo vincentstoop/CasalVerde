@@ -2,10 +2,10 @@
   <h1 class="headings text-align">Invoice</h1>
   <p>Check in date: <span><%= @booking.check_in %></span></p>
   <p>Check out date: <span><%= @booking.check_out %></span></p>
-  <p>Full name:<span><%= @booking.first_name %></span><span> <%= @booking.last_name %></span></p>
+  <p>Full name: <span><%= @booking.first_name %></span><span> <%= @booking.last_name %></span></p>
   <p>Phone number: <span><%= @booking.phone %></span></p>
   <p>Adress: <span><%= @booking.street_name %></span> <span><%= @booking.street_number %></span></p>
   <p>City: <span><%= @booking.city %></span>, <span><%= @booking.zip_code %></span></p>
   <p>People: <span><%= @booking.people %></span></p>
-  <p>Price: <span><%= @booking.total_price %></span></p>
+  <p>Total price: <span><%= money(@booking.total_price) %> </span></p>
 </div>
