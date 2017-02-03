@@ -8,9 +8,9 @@
       </div>
       <div class="form-group">
         <%= f.submit "Edit", class: "edit-paragraphs" %>
-        <%= button_to "Delete", admin_page_paragraph_path(@page, p), confirm: "Are you sure? Once deleted, all your text is gone!", method: :delete, class: "delete-paragraphs" %>
-      </div>
-    <% end %>
+      <% end %>
+      <%= button_to "Delete", admin_page_paragraph_path(@page, p), confirm: "Are you sure? Once deleted, all your text is gone!", method: :delete, class: "delete-paragraphs" %>
+    </div>
 
    <hr>
 <% end %>
