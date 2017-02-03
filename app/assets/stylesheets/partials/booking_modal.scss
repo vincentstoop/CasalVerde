@@ -66,6 +66,7 @@
         }
 
         input {
+            padding-left: 7px;
             width: 105px;
             height: 25px;
             border: 1px solid #999;
@@ -85,9 +86,24 @@
         border-bottom: 1px solid #CCC;
         padding-top: 8px;
         padding-bottom: 20px;
-
+        width: 220px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        .input-modal {
+          width: 50%;
+        }
         input {
-            width: 220px;
+            width: 100%;
+            padding-left: 7px;
+            margin-bottom: 5px;
+        }
+        .buttons-modal {
+          width: 40%;
+          display: flex;
+        }
+        .people_button_modal {
+          width: 25px;
         }
     }
 

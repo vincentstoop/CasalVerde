@@ -1,4 +1,24 @@
 /*global $*/
+function add_people_modal(event) {
+    event.preventDefault();
+    var oldValue = $('#guests').val();
+    if (!oldValue) oldValue = 0;
+    if (oldValue < 15) {
+        var newVal = parseFloat(oldValue) + 1;
+        $('#guests').val(newVal);
+    }
+}
+
+function remove_people_modal(event) {
+    event.preventDefault();
+    var oldValue = $('#guests').val();
+    if (!oldValue) oldValue = 0;
+    if (oldValue > 1) {
+        var newVal = parseFloat(oldValue) - 1;
+        $('#guests').val(newVal);
+    }
+}
+
 
 $(document).on('turbolinks:load', function() {
     $('.carousel').slick({
@@ -42,4 +62,6 @@ $(document).on('turbolinks:load', function() {
 
         }
     });
+    $('#remove_people_modal').bind('click', remove_people_modal);
+    $('#add_people_modal').bind('click', add_people_modal);
 });
