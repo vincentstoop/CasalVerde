@@ -35,6 +35,9 @@ function createReview(name, stars, review) {
                     .append("<p>" + review + "</p>"));
 
             $('#reviews-all-wrapper').append(reviewitem);
+            $("#review_name").val('');
+            $("#review_stars").val(5);
+            $("#review_review").val('');
         })
 
 
@@ -56,22 +59,19 @@ function createReview(name, stars, review) {
 }
 
 function showError(attr, error_message) {
-    var errorHelpBlock = $('<span class="help-block"></span>')
-        .attr('id', 'error_message')
+    var errorHelpBlock = $('<p>')
+        .attr('class', 'error-message')
         .text(" Please enter " + attr + ". It " + error_message + ".");
 
     switch (attr) {
         case "name":
-            $("#name_label").append(errorHelpBlock);
-            $("#review_name").addClass("validationErrorField");
+            $("#name_label").parent().append(errorHelpBlock);
             break;
         case "stars":
-            $("#stars_label").append(errorHelpBlock);
-            $("#review_stars").addClass("validationErrorField");
+            $("#stars_label").parent().append(errorHelpBlock);
             break;
         case "review":
-            $("#review_label").append(errorHelpBlock);
-            $("#review_review").addClass("validationErrorField");
+            $("#review_label").parent().append(errorHelpBlock);
             break;
     }
 }
@@ -92,11 +92,8 @@ function resetErrors(attr) {
 
 function submitReview(event) {
     event.preventDefault();
-    $("#error_message").remove();
+    $(".error-message").remove();
     createReview($("#review_name").val(), $("#review_stars").val(), $("#review_review").val());
-    $("#review_name").val(null);
-    $("#review_stars").val(5);
-    $("#review_review").val(null);
 }
 
 $(document).on('turbolinks:load', function() {

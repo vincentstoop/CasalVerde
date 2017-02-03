@@ -1,27 +1,27 @@
-<%= form_for @review, id: "review_form",html:{ class: 'content_form short'}, remote: true do |f| %>
-  <% if @review.errors.any? %>
-    <ul>
-      <% @review.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
+<%= form_for @review, id: "review_form",html:{ class: 'content_form short'} do |f| %>
 
-  <label id="name_label">What is your name?</label>
-  <%= f.text_field :name %>
+<div>
+    <label id="name_label">What is your name?</label>
+    <%= f.text_field :name %>
+</div>
 
-  <label id="star_label">How many stars would you give us?</label>
-  <%= f.select(:stars, options_for_select([['★', "1"], ['★★', "2"], ['★★★', "3"], ['★★★★', "4"], ['★★★★★', "5"]], "5")) %> <br>
+<div>
+    <label id="star_label">How many stars would you give us?</label>
+    <%= f.select(:stars, options_for_select([['★', "1"], ['★★', "2"], ['★★★', "3"], ['★★★★', "4"], ['★★★★★', "5"]], "5")) %>
+</div>
 
-  <label id="review_label">How would you describe your stay?</label>
-  <%= f.text_area :review %> 
+<div>
+    <label id="review_label">How would you describe your stay?</label>
+    <%= f.text_area :review %>
+  </div>
 
-  <%= f.submit "Enter review" , class: 'submit' %>
+<button type="submit" name="button" class="submit">Enter review</button>
 
 <% end %>
 
 <style>
-  #review_stars option[value="1"] {
-    color: red;
-  }
+    #review_stars option[value="1"] {
+        color: red;
+    }
+
 </style>
