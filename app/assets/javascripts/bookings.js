@@ -47,6 +47,10 @@ function createBooking(startDate, endDate, firstName, lastName, title, phone, em
             contentType: "application/json",
             dataType: "json"
         })
+        .done(function(data) {
+          var loc = window.location;
+          window.location = loc.protocol+"//"+loc.hostname+":"+loc.port+"/bookings/"+data.booking.id;
+        })
         .fail(function(errors) {
             showErrors(errors);
         })
