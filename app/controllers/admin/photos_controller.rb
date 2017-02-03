@@ -20,6 +20,18 @@ class Admin::PhotosController < Admin::BaseController
     end
   end
 
+  def destroy
+    @photo = Photo.find(params[:id])
+    @carousel = Carousel.find(params[:carousel_id])
+    @page = Page.find(params[:page_id])
+
+    if @photo.destroy
+      redirect_to admin_page_carousel_photos_path
+    else
+      redirect_to admin_page_carousel_photos_path, notice: "Fuck you"
+    end
+  end
+
   private
   def photo_params
     params.require(:photo).permit(:image)
