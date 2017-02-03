@@ -1,63 +1,64 @@
 <div class="form">
-  <%= form_for @booking do |f| %>
+    <%= form_for @booking, html:{ class: 'content_form'} do |f| %>
 
-    <hr>
-
-    <div>
-      <%= f.label :check_in %>
-      <% if params[:checkin]%>
-        <%= f.text_field :check_in, :value => params[:checkin]%>
-      <% else %>
-        <%= f.text_field :check_in%>
-      <% end %>
+    <div class="picker">
+        <div>
+            <%= f.label :check_in %>
+            <% if params[:checkin]%>
+            <%= f.text_field :check_in, :value => params[:checkin]%>
+        <% else %>
+            <%= f.text_field :check_in%>
+            <% end %>
+        </div>
+        <div><%= f.label :check_out %>
+            <% if params[:checkout]%>
+            <%= f.text_field :check_out, :value => params[:checkout]%>
+        <% else %>
+            <%= f.text_field :check_out%>
+            <% end %>
+      </div>
     </div>
+    <fieldset>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
 
-    <div>
-      <%= f.label :check_out %>
-      <% if params[:checkout]%>
-        <%= f.text_field :check_out, :value => params[:checkout]%>
-      <% else %>
-        <%= f.text_field :check_out%>
-      <% end %>
-    </div>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name  %>
 
-    <hr>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, placeholder: "First name" %> <br>
+    </fieldset>
+    <fieldset>
+        <%= f.label :phone %>
+        <%= f.telephone_field :phone %>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, placeholder: "Last name" %> <br>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
 
-    <%= f.label :title %>
-    <%= f.text_field :title, placeholder: "title" %> <br>
+        <%= f.label :street_name %>
+        <%= f.text_field :street_name %>
 
-    <%= f.label :phone %>
-    <%= f.telephone_field :phone, placeholder: "phone number" %> <br>
+        <%= f.label :street_number %>
+        <%= f.text_field :street_number %>
 
-    <%= f.label :email %>
-    <%= f.email_field :email, placeholder: "email" %> <br>
+        <%= f.label :city %>
+        <%= f.text_field :city %>
 
-    <%= f.label :street_name %>
-    <%= f.text_field :street_name, placeholder: "street name" %>  <br>
+        <%= f.label :zip_code %>
+        <%= f.text_field :zip_code %>
+    </fieldset>
+    <fieldset>
+        <%= f.label "Number of people" %>
+        <% if params[:guests]%>
+        <%= f.number_field :people, :value => params[:guests], min: 1, max: 15%>
 
-    <%= f.label :street_number %>
-    <%= f.text_field :street_number, placeholder: "street number" %> <br>
-
-    <%= f.label :city %>
-    <%= f.text_field :city, placeholder: "city" %> <br>
-
-    <%= f.label :zip_code %>
-    <%= f.text_field :zip_code, placeholder: "zip code" %> <br>
-
-    <%= f.label "Number of people" %>
-    <% if params[:guests]%>
-      <%= f.number_field :people, :value => params[:guests], placeholder: 8, min: 1, max: 15%> <br>
     <% else %>
-      <%= f.number_field :people, placeholder: 8, min: 1, max: 15 %> <br>
-    <% end %>
+        <%= f.number_field :people, min: 1, max: 15 %>
 
-    <div>
-      <%= f.submit "Book Now" %>
-    </div>
-  <% end %>
+        <% end %>
+    </fieldset>
+
+    <%= f.submit "Book Now", class: 'submit' %>
+
+    <% end %>
 </div>
