@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     get :taken, on: :collection
   end
 
+  resources :prices, only: [:calculate_price] do
+    get :calculate_price, on: :collection
+  end
+
   namespace :admin do
     get '/', to: 'panel#index'
     get '/past_bookings', to: 'bookings#past', as: 'past_bookings'
