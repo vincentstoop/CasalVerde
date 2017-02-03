@@ -18,7 +18,6 @@ class Booking < ApplicationRecord
   validates :title, presence: true, length: {maximum: 10}
   validates :phone, presence: true, length: {maximum: 255}
   validates :email, presence: true,
-                    uniqueness: { case_sensitive: false },
                     length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }
   validates :street_name, presence: true
