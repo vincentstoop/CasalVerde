@@ -1,0 +1,7 @@
+<h1>Photos</h1>
+
+<% @photos.each do |p| %>
+  <%= cl_image_tag(p.image, width: 250, height: 200) %> <br>
+  <%= link_to "Edit", edit_admin_photo_path(p) %>| Delete
+  <hr>
+<% end %>
