@@ -1,0 +1,12 @@
+<div class="content">
+    <div class="home-text-container">
+        <div class="home-text-wrapper">
+            <% @paragraphs.each do |p| %>
+            <div>
+                <h3 class="home_heading"><%= p.heading if p.heading != nil %></h3>
+                <p><%= p.text%></p>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>

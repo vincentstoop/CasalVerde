@@ -11,6 +11,11 @@
             <%= link_to "Pricing", prices_pages_path %>
             <%= link_to "Reviews", reviews_path %>
             <%= link_to "Gallery", photogallery_pages_path %>
+            <% Page.all.each do |page|%>
+              <% if page.name != "home_page" %>
+                <%= link_to page.name, page_path(page) %>
+              <% end %>
+            <% end %>
         </nav>
     </div>
 </header>

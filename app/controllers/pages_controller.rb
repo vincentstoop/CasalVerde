@@ -9,6 +9,11 @@ class PagesController < ApplicationController
     @reviews = Review.last_3_reviews
   end
 
+  def show
+    @page = Page.find(params[:id])
+    @paragraphs = @page.paragraphs.all
+  end
+
   def prices
     @prices = Price.except_past
   end
