@@ -35,7 +35,7 @@ class Admin::ParagraphsController < Admin::BaseController
     if @paragraph.destroy
       redirect_to admin_page_paragraphs_path
     else
-      redirect_to admin_page_paragraphs_path, notice: "Fuck you"
+      redirect_to admin_page_paragraphs_path
     end
   end
 

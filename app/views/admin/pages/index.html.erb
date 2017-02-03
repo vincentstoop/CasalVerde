@@ -1,6 +1,6 @@
 <h1>Pages</h1>
 
-<%= link_to "Edit carousel pictures", admin_page_carousel_photos_path(@homepage.id, @carousel.id) %>
+<%= link_to "Edit carousel pictures", admin_page_photos_path(@homepage.id) %>
 
 <% @pages.each do |page| %>
   <h2><%= page.name.gsub(/[^0-9A-Za-z]/, '').capitalize %></h2>

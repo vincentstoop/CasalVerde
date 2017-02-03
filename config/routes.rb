@@ -23,13 +23,11 @@ Rails.application.routes.draw do
     get '/', to: 'panel#index'
     get '/past_bookings', to: 'bookings#past', as: 'past_bookings'
     resources :prices, except: [:show, :new]
-    resources :bookings, only: [:index, :update, :destroy]
-    resources :reviews, only: [:index, :destroy]
+    resources :bookings, only: [:index, :update, :delete]
+    resources :reviews, only: [:index, :delete]
     resources :pages do
       resources :paragraphs
-      resources :carousels do
-        resources :photos
-      end
+      resources :photos
     end
   end
 end
