@@ -8,10 +8,7 @@ class Admin::PhotosController < Admin::BaseController
 
   def update
     photo = Photo.find(params[:id])
-    debugger
     photo.image = params(:image)
-
-    debugger
 
     if photo.update
       redirect_to controller: :photos, action: :index
