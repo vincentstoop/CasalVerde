@@ -27,6 +27,15 @@ class Admin::PagesController < Admin::BaseController
     end
   end
 
+  def destroy
+    page = Page.find(params[:id])
+
+    if page.destroy
+      redirect_to admin_pages_path
+    else
+      redirect_to admin_pages_path
+    end
+  end
 
   def edit
     @page = Page.find(params[:id])
