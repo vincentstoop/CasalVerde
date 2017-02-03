@@ -24,6 +24,7 @@ function call_takend_dates() {
                 minDate: 0,
                 dateFormat: 'yy-mm-dd'
             });
+
             init_pickers();
         });
 }
@@ -32,10 +33,16 @@ function init_pickers() {
     $('#checkin').datepicker();
     $('#checkout').datepicker();
     $('#booking_check_in').datepicker();
+    if (!$("#booking_check_in").val()) {
+        $("#booking_check_in").datepicker("setDate", new Date());
+    }
     $('#booking_check_out').datepicker();
+    if (!$("#booking_check_out").val()) {
+        $("#booking_check_out").datepicker("setDate", new Date());
+    }
     $('#admin-calendar').datepicker({
-      numberOfMonths: 3,
-      showButtonPanel: true
+        numberOfMonths: 3,
+        showButtonPanel: true
     });
 }
 
