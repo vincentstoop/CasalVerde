@@ -42,6 +42,6 @@ class Admin::ParagraphsController < Admin::BaseController
   private
 
   def paragraph_params
-    params.require(:paragraph).permit(:text)
+    params.require(:paragraph).permit(:heading, :text)
   end
 end
