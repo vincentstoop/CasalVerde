@@ -7,17 +7,12 @@
         <div class="form-group">
           <%= p.label :hidden %>
           <%= p.check_box :hidden %>
-          <%= p.submit "Save", class: "add-page" %>
-          <%= button_to "Delete", admin_page_path(page), confirm: "Are you sure? Once deleted, all your text is gone!", method: :delete, class: "delete-paragraphs" %>
-        </div>
-        <div class="form-group">
-
+          <%= p.submit "Save", class: "edit-paragraphs" %>
         </div>
       <% end %>
     <% end %>
-      <%= button_to "Edit paragraphs", admin_page_paragraphs_path(page.id), class: "add-page" %>
-
-      <hr>
+    <%= link_to "Edit paragraphs", admin_page_paragraphs_path(page.id) %>
+    <hr>
 <% end %>
 
 <h1>Add new page</h1>
