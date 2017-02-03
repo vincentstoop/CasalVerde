@@ -1,4 +1,4 @@
-
+/* global $ */
 function submitBooking(event) {
     event.preventDefault();
     cleanUpErrors(this);
@@ -33,7 +33,7 @@ function createBooking(startDate, endDate, firstName, lastName, title, phone, em
         city: city,
         zip_code: zipCode,
         people: people
-    }
+    };
 
     $.ajax({
             type: "POST",
@@ -106,11 +106,13 @@ function showPrice() {
   $('#datein').html(check_in);
   $('#dateout').html(check_out);
 
-  var newPrice = {
-      checkin: check_in,
-      checkout: check_out,
-      guests: people
-  }
+
+    var newPrice = {
+        checkin: check_in,
+        checkout: check_out,
+        guests: people
+    };
+
 
   $.ajax({
     type: 'POST',
@@ -126,13 +128,13 @@ function showPrice() {
   })
   .fail(function(errors){
   });
+
 }
 
 $(document).on('turbolinks:load', function() {
     $('#new_booking').bind('submit', submitBooking);
     $('.remove_people').bind('click', remove_people);
     $('.add_people').bind('click', add_people);
-    showPrice();
     $('#booking_check_in').on('change', showPrice);
     $('#booking_check_out').on('change', showPrice);
     $('#booking_people').on('change', showPrice);

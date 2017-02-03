@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :pages, only: [:index] do
     get :photogallery, on: :collection
+    get :prices, on: :collection
   end
   resources :reviews
 
