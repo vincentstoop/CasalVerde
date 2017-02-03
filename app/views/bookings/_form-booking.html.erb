@@ -48,7 +48,8 @@
         <%= f.text_field :zip_code %>
     </fieldset>
     <fieldset>
-        <%= f.label "Number of people" %>
+        <%= f.label :people %>
+
         <% if params[:guests]%>
         <%= f.number_field :people, :value => params[:guests], min: 1, max: 15%>
 

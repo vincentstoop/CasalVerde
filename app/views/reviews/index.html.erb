@@ -4,17 +4,19 @@
     <!-- Render tripadvisor and review partials -->
     <%= render "reviews" %>
 
-    <p>Did you stay with us? We would like to hear your feedback.</p>
+    <div class="text-align">
+        <p>Did you stay with us? We would like to hear your feedback.</p>
 
-    <button id="show-partial">
-        Tell us about your stay
-    </button>
+        <button id="show-partial" class="submit_samll">
+            Tell us about your stay
+        </button>
+    </div>
 
     <div style="display:none;" id="partial">
         <%= render "form" %>
     </div>
 
-    <div id="tripadvisor">
+    <div id="tripadvisor" class="text-align">
         <%= render "tripadvisor" %>
     </div>
 </div>

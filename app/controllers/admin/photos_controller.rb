@@ -28,6 +28,7 @@ class Admin::PhotosController < Admin::BaseController
   def update
     photo = Photo.find(params[:id])
 
+
     if photo.update(photo_params)
       redirect_to controller: :photos, action: :index
     else
@@ -50,5 +51,6 @@ class Admin::PhotosController < Admin::BaseController
   private
   def photo_params
     params.require(:photo).permit(:image)
+
   end
 end

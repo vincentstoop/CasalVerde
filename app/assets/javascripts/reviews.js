@@ -22,14 +22,19 @@ function createReview(name, stars, review) {
             var allStars = "";
 
             for (var i = 0; i < stars; i++) {
-                allStars += '<img src="http://i.imgur.com/nbis287.png" alt="" height="10px" width="10px"> ';
+                allStars += '<img src="assets/full_star.svg" alt="full star" class="star"> ';
             }
-            var reviewList = $('<ul></ul>')
-                .append($('<li>').append("<strong>Review by</strong>: " + name))
-                .append($('<li>').append("<strong>Stars: </strong>" + allStars))
-                .append($('<li>').append("<strong>Review: </strong>" + review));
+            for (var z = 0; i < (stars - 5); z++) {
+                allStars += '<img src="assets/empty_star.svg" alt="full star" class="star"> ';
+            }
 
-            $("#reviews").append(reviewList).append("<hr>");
+            var reviewitem = $('<div>').attr('class', 'reviews-all-item')
+                .append($('<div>').attr('class', 'reviews-all-header').append("<p>" + name + "</p>"))
+                .append($('<div>').attr('class', 'reviews-all-body')
+                    .append("<p><strong>Stars:</strong>" + allStars + "</p>")
+                    .append("<p>" + review + "</p>"));
+
+            $('#reviews-all-wrapper').append(reviewitem);
         })
 
 

@@ -57,6 +57,22 @@
     }
 }
 
+.submit_samll {
+    text-transform: uppercase;
+    display: block !important;
+    background-color: #6F8561;
+    border: none;
+    width: 220px !important;
+    height: auto;
+    border-radius: 3px;
+    margin: 17px auto 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+}
+
 .submit {
     text-transform: uppercase;
     display: block !important;
