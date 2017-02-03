@@ -13,7 +13,7 @@ class Admin::PagesController < Admin::BaseController
     if @page.save
       redirect_to admin_pages_path
     else
-      render "index"
+      render :index
     end
   end
 
