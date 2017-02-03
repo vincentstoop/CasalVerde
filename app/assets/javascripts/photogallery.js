@@ -2,9 +2,10 @@
 
 var Instagram = {
     config: {
-        access_token: '3223134563.e4be9ab.5af267e110e24c2b947ad31e2c8c86e1'
+        access_token: '3223134563.588b0fe.851ad0bd859c452b814dcfabbd56df15'
     },
     SELF_URL: 'https://api.instagram.com/v1/users/self/media/recent/?access_token=',
+
 
     init: function(opt) {
         opt = opt || {};
