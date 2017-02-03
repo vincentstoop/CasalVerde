@@ -6,6 +6,7 @@ var Instagram = {
     },
     SELF_URL: 'https://api.instagram.com/v1/users/self/media/recent/?access_token=',
 
+
     init: function(opt) {
         opt = opt || {};
         this.config.client_id = opt.client_id;
